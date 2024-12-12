@@ -1,0 +1,223 @@
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+
+// import java.io.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+
+parser code {:
+	
+	boolean errorDetected = false;
+	
+	Logger log = Logger.getLogger(getClass());
+   
+   
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
+     
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+    public void syntax_error(Symbol cur_token) {
+        report_error("\nSintaksna greska", cur_token);
+    }
+  
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+    public void report_error(String message, Object info) {
+    	errorDetected = true;
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.error(msg.toString());
+    }
+    
+    public void report_info(String message, Object info) {
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.info(msg.toString());
+    }
+    
+:}
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+
+terminal PROG, IDENT, VOID, PRINT, READ;
+terminal SEMI;
+terminal EQUAL DOUBLEPLUS, DOUBLEMINUS;
+terminal LBRACE, RBRACE, LBRACKET, RBRACKET, LPAREN, RPAREN;
+terminal CONSTNUMBER, CONSTBOOLEAN, CONSTCHAR;
+
+nonterminal ProgName, Type;
+nonterminal Declarations, Decl;
+nonterminal ConstDecl, ConstDeclList, Const;
+nonterminal VarDecl, VarDeclList, Variable;
+nonterminal MethodSignature, MethodDecl;
+nonterminal FormPars, FormParsList;
+nonterminal StatementList, Statement, DesignatorStatement, Designator;
+nonterminal Expr, AddopTermList, ActPars, Term, Factor;
+nonterminal Setop, Addop, Mulop;
+
+Program ::= (Program)PROG ProgName VarDeclList LBRACE Declarations RBRACE;
+
+ProgName ::= (ProgramName)IDENT:ProgramName;
+
+Declarations ::= (Declarations)Declarations Decl  
+				|
+				(NoDeclarations) /* epsilon */ 
+				;
+				
+Decl ::= (ConstDecl) ConstDecl
+		|
+		(VariableDecl) VarDecl
+		;
+
+ConstDecl ::= (ConstDeclaration)CONST Type ConstDeclList SEMI;
+
+ConstDeclList ::= (ConstDeclarationList) ConstDeclList COMMA Const
+				|
+				(SingleConst) Const
+				;
+
+Const ::=(ConstNumber) IDENT:constName EQUAL CONSTNUMBER
+		|
+		(ConstBoolean) IDENT:constName EQUAL CONSTBOOLEAN
+		|
+		(ConstChar) IDENT:constName EQUAL CONSTCHAR
+		;
+
+VarDecl ::= (VarDeclarationList)Type VarDeclList SEMI;
+
+VarDeclList ::=(MultipleVarDecl) VarDeclList COMMA Variable
+			|
+			(SingleVarDecl) Variable
+			;
+			
+Variable ::=(SingleVariable) IDENT:varName
+			|
+			(ArrayVariable) IDENT:varName LBRACKET RBRACKET
+			;
+
+MethodSignature ::= (MethodType) Type IDENT:methodName LPAREN FormParsList RPAREN
+					|
+					(MethodVoid) VOID IDENT:methodName LPAREN FormParsList RPAREN
+					;
+				
+MethodDecl ::= (MethodDeclaration) MethodSignature VarDecl LBRACE StatementList RBRACE;
+					
+FormParsList ::=(MultipleParameter) FormParsList COMMA FormPars
+			|
+			(SingleParameter) FormPars
+			;
+			
+FormPars ::=(RegularParam) Type IDENT:paramName
+			|
+			(ArrayParam) Type IDENT:paramName LBRACKET RBRACKET
+			;
+
+StatementList ::= (StatementList) StatementList Statement
+			|
+			(NoStatement)
+			/* epsilon */
+			;
+
+Statement ::= (DesignatorStatement) DesignatorStatement SEMI
+			|
+			(Designator) READ LPAREN Designator RPAREN SEMI
+			|
+			(ExprStatement) PRINT LPAREN Expr RPAREN SEMI
+			;
+
+DesignatorStatement ::=(DesignatorEqualExpr) Designator EQUAL Expr
+					|
+					(DesignatorUnion) Designator EQUAL Designator Setop Designator
+					|
+					(DesignatorIncrement) Designator DOUBLEPLUS
+					|
+					(DesignatorDecrement) Designator DOUBLEMINUS
+					|
+					(DesignatorActPars) Designator LPAREN ActPars RPAREN
+					;
+					
+					
+Designator ::= (DesignatorIdent) IDENT:designatorName
+			|
+			(DesignatorIdentExpr) IDENT:designatorName LBRACKET Expr RBRACKET
+			;
+
+Expr ::=(PositiveExpr) Term AddopTermList
+		|
+		(NegativeExpr) MINUS Term AddopTermList
+		;
+	
+AddopTermList ::=(MultipleTerm) AddopTermList Addop Term
+				|
+				(NoTerm)
+				/* epsilon */
+				;
+	
+Setop ::= (Union) UNION;
+
+ActPars ::= (MultipleActPars) ActPars COMMA Expr
+			|
+			(SignleActPar) Expr
+			;
+
+Term ::=(MultipleTerm) Term Mulop Factor
+		|
+		(SignleTerm) Factor;
+		
+Mulop ::=(Multiple) MUL
+		|
+		(Div) DIV
+		|
+		(Mod) MOD
+		;
+
+Factor ::=(FactorConstNumber) CONSTNUMBER
+		|
+		(FactorConstBoolean) CONSTBOOLEAN
+		|
+		(FactorConstChar) CONSTCHAR
+		|
+		(FactoreNewExpr) NEW Type LBRACKET Expr RBRACKET
+		|
+		(FactorExpr) LPAREN Expr RPAREN
+		;
+
+Addop ::=(Plus) PLUS
+		|
+		(Minus) MINUS
+		;
+
+Type ::= (Type) IDENT:typeName;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
