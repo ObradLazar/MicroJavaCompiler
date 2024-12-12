@@ -5,6 +5,7 @@
 		<delete>
 			<fileset dir="src/rs/ac/bg/etf/pp1">
 				<exclude name="sym_old.java"/>
+				<exclude name="sym.java"/>
 				<exclude name="util/Log4JUtils.java"/>
 				<exclude name="SemanticAnalyzer.java"/>
 			</fileset>
