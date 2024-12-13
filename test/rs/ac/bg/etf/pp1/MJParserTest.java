@@ -35,7 +35,7 @@ public class MJParserTest {
 		}
 			
 		log.info("Compiling source file: " + sourceCode.getAbsolutePath());
-		
+		/*
 		try (BufferedReader br = new BufferedReader(new FileReader(sourceCode))) {
 			Yylex lexer = new Yylex(br);
 			MJParser p = new MJParser(lexer);
@@ -48,7 +48,7 @@ public class MJParserTest {
 			
 	        log.info("Print calls = " + semanticCheck.printCallCount);
 	        Tab.dump();
-	        /*
+	        
 	        if (!p.errorDetected && semanticCheck.passed()) {
 	        	File objFile = new File(args[1]);
 	        	log.info("Generating bytecode file: " + objFile.getAbsolutePath());
@@ -66,7 +66,8 @@ public class MJParserTest {
 	        else {
 	        	log.error("Parsiranje NIJE uspesno zavrseno!");
 	        }
-	        */
+	        
 		}
+		*/
 	}
 }

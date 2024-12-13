@@ -5,7 +5,6 @@
 		<delete>
 			<fileset dir="src/rs/ac/bg/etf/pp1">
 				<exclude name="sym_old.java"/>
-				<exclude name="sym.java"/>
 				<exclude name="util/Log4JUtils.java"/>
 				<exclude name="SemanticAnalyzer.java"/>
 			</fileset>
@@ -36,7 +35,7 @@
 			<arg value="MJParser"/>
 			<arg value="-dump_states"/>
 			<arg value="-buildtree"/>
-			<arg value="spec/mjparser.cup"/>
+			<arg value="./spec/mjparser.cup"/>
 		</java>
 	</target>
 
@@ -45,7 +44,7 @@
 		<replace dir="src" value="rs.ac.bg.etf.pp1.ast" token="src.rs.ac.bg.etf.pp1.ast" summary="true"/>
 	</target>
 
-	<target name="compile" depends="lexerGen">
+	<target name="compile" depends="repackage">
 		<javac srcdir="src/rs/ac/bg/etf/pp1" includeantruntime="false">
 			<classpath>
 				<pathelement path="lib/JFlex.jar"/>

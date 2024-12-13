@@ -3,7 +3,6 @@ package rs.ac.bg.etf.pp1;
 import java_cup.runtime.*;
 import org.apache.log4j.*;
 
-// import java.io.*;
 import rs.ac.bg.etf.pp1.ast.*;
 
 
@@ -54,90 +53,116 @@ scan with {:
 :}
 
 
-terminal PROG, IDENT, VOID, PRINT, READ;
-terminal SEMI;
-terminal EQUAL DOUBLEPLUS, DOUBLEMINUS;
+terminal PROG, VOID, PRINT, READ, NEW, CONST, RETURN;
+terminal SEMI, COMMA, UNION;
+terminal EQUAL, DOUBLEPLUS, DOUBLEMINUS, MINUS, PLUS, MOD, DIV, MUL;
 terminal LBRACE, RBRACE, LBRACKET, RBRACKET, LPAREN, RPAREN;
-terminal CONSTNUMBER, CONSTBOOLEAN, CONSTCHAR;
 
-nonterminal ProgName, Type;
-nonterminal Declarations, Decl;
-nonterminal ConstDecl, ConstDeclList, Const;
-nonterminal VarDecl, VarDeclList, Variable;
+terminal Integer CONSTNUMBER;
+terminal Boolean CONSTBOOLEAN;
+terminal Character CONSTCHAR;
+terminal String IDENT;
+
+nonterminal Program, ProgramName;
+nonterminal DeclList, Declaration, MethodDeclList;
+nonterminal ConstDecl, ConstDeclList, ConstDeclaration, ConstType;
+nonterminal VarDecl, VarDeclList, Variable, VarDeclArray;
 nonterminal MethodSignature, MethodDecl;
-nonterminal FormPars, FormParsList;
-nonterminal StatementList, Statement, DesignatorStatement, Designator;
-nonterminal Expr, AddopTermList, ActPars, Term, Factor;
+nonterminal FormParsList, FormPars;
+nonterminal StatementList, Statement;
+nonterminal DesignatorStatement, Designator;
+nonterminal Type, Expr, AddopTermList, Term, ActPars, Factor;
 nonterminal Setop, Addop, Mulop;
 
-Program ::= (Program)PROG ProgName VarDeclList LBRACE Declarations RBRACE;
+Program ::= (Program) PROG ProgramName DeclList LBRACE MethodDeclList RBRACE;
 
-ProgName ::= (ProgramName)IDENT:ProgramName;
+ProgramName ::= (ProgramName) IDENT:name;
 
-Declarations ::= (Declarations)Declarations Decl  
+DeclList ::= (DeclarationList) DeclList Declaration
+            |
+            (NoDeclarationList) /* epsilon */
+            ;
+
+Declaration ::=(DeclarationConstant) ConstDecl
+            |
+            (DeclarationVariable) VarDecl
+            ;
+
+MethodDeclList ::= (MethodDeclarationListMultiple) MethodDeclList MethodDecl
+                |
+                (NoMethodDeclList) /* epsilon */
+                ;
+
+ConstDecl ::= (ConstDecl) CONST Type ConstDeclList SEMI;
+
+ConstDeclList ::=(ConstDeclListMultiple) ConstDeclaration COMMA ConstDeclList
+                |
+                (ConstDeclListSignle) ConstDeclaration
+                ;
+
+ConstDeclaration ::= (ConstDeclaration) IDENT:name EQUAL ConstType;
+
+VarDecl ::=(VarDecl) Type VarDeclList SEMI;
+
+VarDeclList ::= (VarDeclListMultiple) VarDeclList COMMA Variable
+            |
+            (VarDeclListSignle) Variable
+            ;
+
+Variable ::= (VariableIdent) IDENT:varName
+            |
+            (VariableArray) IDENT:varName LBRACKET RBRACKET
+            ;
+
+MethodSignature ::=(MethodSignatureType) Type IDENT:methodName LPAREN FormParsList RPAREN
+                |
+                (MethodSignatureVoid) VOID IDENT:methodName LPAREN FormParsList RPAREN
+                |
+                (MethodSignatureVoidNoPars) VOID IDENT:methodName LPAREN RPAREN
 				|
-				(NoDeclarations) /* epsilon */ 
-				;
-				
-Decl ::= (ConstDecl) ConstDecl
-		|
-		(VariableDecl) VarDecl
-		;
+				(MethodSignatureTypeNoPars) Type IDENT:methodName LPAREN  RPAREN
+                ;
 
-ConstDecl ::= (ConstDeclaration)CONST Type ConstDeclList SEMI;
+MethodDecl ::=(MethodDeclaration) MethodSignature VarDeclArray LBRACE StatementList RBRACE;
 
-ConstDeclList ::= (ConstDeclarationList) ConstDeclList COMMA Const
-				|
-				(SingleConst) Const
-				;
+VarDeclArray ::=(VarDeclarationArray) VarDeclArray VarDecl
+                |
+                (NoVarDeclarationArray)/* epsilon */
+                ;
 
-Const ::=(ConstNumber) IDENT:constName EQUAL CONSTNUMBER
-		|
-		(ConstBoolean) IDENT:constName EQUAL CONSTBOOLEAN
-		|
-		(ConstChar) IDENT:constName EQUAL CONSTCHAR
-		;
+ConstType ::= (ConstTypeNumber) CONSTNUMBER:numberConst
+            |
+            (ConstTypeBoolean) CONSTBOOLEAN:booleanConst
+            |
+            (ConstTypeCharacter) CONSTCHAR:charConst
+            ;
 
-VarDecl ::= (VarDeclarationList)Type VarDeclList SEMI;
+FormParsList ::=(FormParsListMultiple) FormParsList COMMA FormPars
+                |
+                (FormParsListSignle) FormPars
+                ;
 
-VarDeclList ::=(MultipleVarDecl) VarDeclList COMMA Variable
+FormPars ::=(FormPar) Type IDENT:parName
+            |
+            (FormParArray) Type IDENT:parName LBRACKET RBRACKET
+            ;
+
+StatementList ::=(StatementListMultiple) StatementList Statement
+                |
+                (NoStatementList) /* epsilon */
+                ;
+
+Statement ::= (StatementDesignator) DesignatorStatement SEMI
 			|
-			(SingleVarDecl) Variable
-			;
-			
-Variable ::=(SingleVariable) IDENT:varName
+			(StatementRead) READ LPAREN Designator RPAREN SEMI
 			|
-			(ArrayVariable) IDENT:varName LBRACKET RBRACKET
-			;
-
-MethodSignature ::= (MethodType) Type IDENT:methodName LPAREN FormParsList RPAREN
-					|
-					(MethodVoid) VOID IDENT:methodName LPAREN FormParsList RPAREN
-					;
-				
-MethodDecl ::= (MethodDeclaration) MethodSignature VarDecl LBRACE StatementList RBRACE;
-					
-FormParsList ::=(MultipleParameter) FormParsList COMMA FormPars
+			(StatementPrint) PRINT LPAREN Expr RPAREN SEMI
 			|
-			(SingleParameter) FormPars
-			;
-			
-FormPars ::=(RegularParam) Type IDENT:paramName
+			(StatementPrintMultiple) PRINT LPAREN Expr COMMA CONSTNUMBER RPAREN SEMI
 			|
-			(ArrayParam) Type IDENT:paramName LBRACKET RBRACKET
-			;
-
-StatementList ::= (StatementList) StatementList Statement
+			(StatementReturnEmpty) RETURN SEMI
 			|
-			(NoStatement)
-			/* epsilon */
-			;
-
-Statement ::= (DesignatorStatement) DesignatorStatement SEMI
-			|
-			(Designator) READ LPAREN Designator RPAREN SEMI
-			|
-			(ExprStatement) PRINT LPAREN Expr RPAREN SEMI
+			(StatementReturnSomething) RETURN Expr SEMI
 			;
 
 DesignatorStatement ::=(DesignatorEqualExpr) Designator EQUAL Expr
@@ -149,9 +174,10 @@ DesignatorStatement ::=(DesignatorEqualExpr) Designator EQUAL Expr
 					(DesignatorDecrement) Designator DOUBLEMINUS
 					|
 					(DesignatorActPars) Designator LPAREN ActPars RPAREN
+					|
+					(DesignatorNoActPars) Designator LPAREN RPAREN
 					;
-					
-					
+
 Designator ::= (DesignatorIdent) IDENT:designatorName
 			|
 			(DesignatorIdentExpr) IDENT:designatorName LBRACKET Expr RBRACKET
@@ -162,47 +188,44 @@ Expr ::=(PositiveExpr) Term AddopTermList
 		(NegativeExpr) MINUS Term AddopTermList
 		;
 	
-AddopTermList ::=(MultipleTerm) AddopTermList Addop Term
+AddopTermList ::=(MultipleTermAddopList) AddopTermList Addop Term
 				|
-				(NoTerm)
-				/* epsilon */
+				(NoTermAddopList) /* epsilon */
 				;
 	
 Setop ::= (Union) UNION;
-
-ActPars ::= (MultipleActPars) ActPars COMMA Expr
-			|
-			(SignleActPar) Expr
-			;
-
-Term ::=(MultipleTerm) Term Mulop Factor
-		|
-		(SignleTerm) Factor;
-		
-Mulop ::=(Multiple) MUL
-		|
-		(Div) DIV
-		|
-		(Mod) MOD
-		;
-
-Factor ::=(FactorConstNumber) CONSTNUMBER
-		|
-		(FactorConstBoolean) CONSTBOOLEAN
-		|
-		(FactorConstChar) CONSTCHAR
-		|
-		(FactoreNewExpr) NEW Type LBRACKET Expr RBRACKET
-		|
-		(FactorExpr) LPAREN Expr RPAREN
-		;
 
 Addop ::=(Plus) PLUS
 		|
 		(Minus) MINUS
 		;
 
-Type ::= (Type) IDENT:typeName;
+Mulop ::=(Mul) MUL
+		|
+		(Div) DIV
+		|
+		(Mod) MOD
+		;
+
+Term ::=(MultipleTerm) Term Mulop Factor
+		|
+		(SignleTerm) Factor;
+
+ActPars ::= (MultipleActPars) ActPars COMMA Expr
+			|
+			(SingleActPar) Expr
+			;
+
+Factor ::=(FactorConst) ConstType
+		|
+		(FactorNewExprArray) NEW Type LBRACKET Expr RBRACKET
+		|
+		(FactorExpr) LPAREN Expr RPAREN
+		|
+		(FactorDesignator) Designator
+		;
+
+Type ::= (TypeName) IDENT:typeName;
 
 
 

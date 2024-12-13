@@ -1,0 +1,21 @@
+program MojProgram 
+int a,b,c[];
+bool b;
+char z;
+int a[];
+
+const int konstante = 5, konstanta2 = 6;
+
+{
+
+	void foo () {
+		int a;
+	}
+
+	int goo () {}
+	
+	void fooArg (int a1) {}
+	
+	int gooArg (int a2) {}
+	
+}

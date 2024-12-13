@@ -1,0 +1,101 @@
+INFO  23:27:59,409 - Compiling source file: C:\Users\LENOVO\Desktop\Njihov projekat\pp1lab.templateAST\pp1lab.templateAST\workspace\MJCompiler\test\syntaxTest.mj
+INFO  23:27:59,431 - #2 program
+INFO  23:27:59,431 - #29 MojProgram
+INFO  23:27:59,431 - #29 int
+INFO  23:27:59,433 - #29 a
+INFO  23:27:59,433 - #10 ,
+INFO  23:27:59,434 - #29 b
+INFO  23:27:59,434 - #10 ,
+INFO  23:27:59,434 - #29 c
+INFO  23:27:59,434 - #22 [
+INFO  23:27:59,434 - #23 ]
+INFO  23:27:59,434 - #9 ;
+INFO  23:27:59,434 - #29 bool
+INFO  23:27:59,435 - #29 b
+INFO  23:27:59,435 - #9 ;
+INFO  23:27:59,435 - #29 char
+INFO  23:27:59,435 - #29 z
+INFO  23:27:59,435 - #9 ;
+INFO  23:27:59,435 - #29 int
+INFO  23:27:59,435 - #29 a
+INFO  23:27:59,435 - #22 [
+INFO  23:27:59,437 - #23 ]
+INFO  23:27:59,437 - #9 ;
+INFO  23:27:59,437 - #20 {
+INFO  23:27:59,437 - #21 }
+INFO  23:27:59,438 - Program(
+  ProgramName(
+   MojProgram
+  ) [ProgramName]
+  DeclarationList(
+    DeclarationList(
+      DeclarationList(
+        DeclarationList(
+          NoDeclarationList(
+          ) [NoDeclarationList]
+          DeclarationVariable(
+            VarDecl(
+              Type(
+               int
+              ) [Type]
+              VarDeclListMultiple(
+                VarDeclListMultiple(
+                  VarDeclListSignle(
+                    VariableIdent(
+                     a
+                    ) [VariableIdent]
+                  ) [VarDeclListSignle]
+                  VariableIdent(
+                   b
+                  ) [VariableIdent]
+                ) [VarDeclListMultiple]
+                VariableArray(
+                 c
+                ) [VariableArray]
+              ) [VarDeclListMultiple]
+            ) [VarDecl]
+          ) [DeclarationVariable]
+        ) [DeclarationList]
+        DeclarationVariable(
+          VarDecl(
+            Type(
+             bool
+            ) [Type]
+            VarDeclListSignle(
+              VariableIdent(
+               b
+              ) [VariableIdent]
+            ) [VarDeclListSignle]
+          ) [VarDecl]
+        ) [DeclarationVariable]
+      ) [DeclarationList]
+      DeclarationVariable(
+        VarDecl(
+          Type(
+           char
+          ) [Type]
+          VarDeclListSignle(
+            VariableIdent(
+             z
+            ) [VariableIdent]
+          ) [VarDeclListSignle]
+        ) [VarDecl]
+      ) [DeclarationVariable]
+    ) [DeclarationList]
+    DeclarationVariable(
+      VarDecl(
+        Type(
+         int
+        ) [Type]
+        VarDeclListSignle(
+          VariableArray(
+           a
+          ) [VariableArray]
+        ) [VarDeclListSignle]
+      ) [VarDecl]
+    ) [DeclarationVariable]
+  ) [DeclarationList]
+  NoMethodDeclList(
+  ) [NoMethodDeclList]
+) [Program]
+INFO  23:27:59,439 - ===================================
