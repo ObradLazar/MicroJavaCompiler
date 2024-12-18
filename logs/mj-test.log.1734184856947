@@ -1,0 +1,151 @@
+INFO  15:00:46,038 - Compiling source file: C:\Users\LENOVO\Desktop\Njihov projekat\pp1lab.templateAST\pp1lab.templateAST\workspace\MJCompiler\test\program.mj
+INFO  15:00:46,063 - #2 program
+INFO  15:00:46,064 - #29 MJProgram
+INFO  15:00:46,064 - #29 int
+INFO  15:00:46,065 - #29 x
+INFO  15:00:46,065 - #9 ;
+INFO  15:00:46,065 - #29 int
+INFO  15:00:46,067 - #29 y
+INFO  15:00:46,067 - #9 ;
+INFO  15:00:46,067 - #20 {
+INFO  15:00:46,067 - #29 int
+INFO  15:00:46,067 - #29 k
+INFO  15:00:46,067 - #24 (
+INFO  15:00:46,067 - #25 )
+INFO  15:00:46,067 - #29 int
+INFO  15:00:46,069 - #29 c
+INFO  15:00:46,069 - #9 ;
+INFO  15:00:46,069 - #20 {
+INFO  15:00:46,069 - #29 c
+INFO  15:00:46,070 - #12 =
+INFO  15:00:46,070 - #26 1
+INFO  15:00:46,070 - #9 ;
+INFO  15:00:46,070 - #29 c
+INFO  15:00:46,071 - #13 ++
+INFO  15:00:46,071 - #9 ;
+INFO  15:00:46,071 - #8 return
+INFO  15:00:46,071 - #29 c
+INFO  15:00:46,071 - #16 +
+INFO  15:00:46,071 - #26 2
+INFO  15:00:46,072 - #9 ;
+INFO  15:00:46,072 - #21 }
+INFO  15:00:46,072 - #21 }
+INFO  15:00:46,073 - Program(
+  ProgramName(
+   MJProgram
+  ) [ProgramName]
+  DeclarationList(
+    DeclarationList(
+      NoDeclarationList(
+      ) [NoDeclarationList]
+      DeclarationVariable(
+        VarDecl(
+          TypeName(
+           int
+          ) [TypeName]
+          VarDeclListSignle(
+            VariableIdent(
+             x
+            ) [VariableIdent]
+          ) [VarDeclListSignle]
+        ) [VarDecl]
+      ) [DeclarationVariable]
+    ) [DeclarationList]
+    DeclarationVariable(
+      VarDecl(
+        TypeName(
+         int
+        ) [TypeName]
+        VarDeclListSignle(
+          VariableIdent(
+           y
+          ) [VariableIdent]
+        ) [VarDeclListSignle]
+      ) [VarDecl]
+    ) [DeclarationVariable]
+  ) [DeclarationList]
+  MethodDeclarationListMultiple(
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+    MethodDeclaration(
+      MethodSignatureTypeNoPars(
+        TypeName(
+         int
+        ) [TypeName]
+       k
+      ) [MethodSignatureTypeNoPars]
+      VarDeclarationArray(
+        NoVarDeclarationArray(
+        ) [NoVarDeclarationArray]
+        VarDecl(
+          TypeName(
+           int
+          ) [TypeName]
+          VarDeclListSignle(
+            VariableIdent(
+             c
+            ) [VariableIdent]
+          ) [VarDeclListSignle]
+        ) [VarDecl]
+      ) [VarDeclarationArray]
+      StatementListMultiple(
+        StatementListMultiple(
+          StatementListMultiple(
+            NoStatementList(
+            ) [NoStatementList]
+            StatementDesignator(
+              DesignatorEqualExpr(
+                DesignatorIdent(
+                 c
+                ) [DesignatorIdent]
+                PositiveExpr(
+                  SignleTerm(
+                    FactorConst(
+                      ConstTypeNumber(
+                       1
+                      ) [ConstTypeNumber]
+                    ) [FactorConst]
+                  ) [SignleTerm]
+                  NoTermAddopList(
+                  ) [NoTermAddopList]
+                ) [PositiveExpr]
+              ) [DesignatorEqualExpr]
+            ) [StatementDesignator]
+          ) [StatementListMultiple]
+          StatementDesignator(
+            DesignatorIncrement(
+              DesignatorIdent(
+               c
+              ) [DesignatorIdent]
+            ) [DesignatorIncrement]
+          ) [StatementDesignator]
+        ) [StatementListMultiple]
+        StatementReturnSomething(
+          PositiveExpr(
+            SignleTerm(
+              FactorDesignator(
+                DesignatorIdent(
+                 c
+                ) [DesignatorIdent]
+              ) [FactorDesignator]
+            ) [SignleTerm]
+            MultipleTermAddopList(
+              NoTermAddopList(
+              ) [NoTermAddopList]
+              Plus(
+              ) [Plus]
+              SignleTerm(
+                FactorConst(
+                  ConstTypeNumber(
+                   2
+                  ) [ConstTypeNumber]
+                ) [FactorConst]
+              ) [SignleTerm]
+            ) [MultipleTermAddopList]
+          ) [PositiveExpr]
+        ) [StatementReturnSomething]
+      ) [StatementListMultiple]
+    ) [MethodDeclaration]
+  ) [MethodDeclarationListMultiple]
+) [Program]
+INFO  15:00:46,073 - ===================================

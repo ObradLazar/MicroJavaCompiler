@@ -8,13 +8,34 @@ const int konstante = 5, konstanta2 = 6;
 
 {
 
-	void foo () {
-		int a;
+	void foo () int a; int b; {
+		// DESIGNATOR STETEMENT SEMI
+		a = 5;
+		a = -5;
+		b[3] = 3;
+		a = 5 + 2;
+		a = b union c;
+		g++;
+		f--;
+		a();
+		a(5,3);
+		
+		// PRINT LPAREN DESIGNATOR RPAREN SEMI
+		read(a);
+		read(b[3]);
+		
+		// PRINT
+		print(3 + 2);
+		print(5, 2);
+		
+		//RETURN
+		return;
+		return b;
 	}
 
-	int goo () {}
+	int goo () bool b; {}
 	
-	void fooArg (int a1) {}
+	void fooArg (int a1) char character; {}
 	
 	int gooArg (int a2) {}
 	

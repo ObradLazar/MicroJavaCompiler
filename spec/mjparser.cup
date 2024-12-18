@@ -223,6 +223,10 @@ Factor ::=(FactorConst) ConstType
 		(FactorExpr) LPAREN Expr RPAREN
 		|
 		(FactorDesignator) Designator
+		|
+		(FactorDesignatorCallFunc) Designator LPAREN ActPars RPAREN
+		|
+		(FactorDesignatorCallFuncNoPars) Designator LPAREN RPAREN
 		;
 
 Type ::= (TypeName) IDENT:typeName;

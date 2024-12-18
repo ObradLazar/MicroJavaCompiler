@@ -1,0 +1,314 @@
+INFO  14:45:42,037 - Compiling source file: C:\Users\LENOVO\Desktop\Njihov projekat\pp1lab.templateAST\pp1lab.templateAST\workspace\MJCompiler\test\syntaxTest.mj
+INFO  14:45:42,062 - #2 program
+INFO  14:45:42,062 - #29 MojProgram
+INFO  14:45:42,062 - #29 int
+INFO  14:45:42,064 - #29 a
+INFO  14:45:42,064 - #10 ,
+INFO  14:45:42,064 - #29 b
+INFO  14:45:42,064 - #10 ,
+INFO  14:45:42,064 - #29 c
+INFO  14:45:42,064 - #22 [
+INFO  14:45:42,064 - #23 ]
+INFO  14:45:42,065 - #9 ;
+INFO  14:45:42,065 - #29 bool
+INFO  14:45:42,065 - #29 b
+INFO  14:45:42,066 - #9 ;
+INFO  14:45:42,066 - #29 char
+INFO  14:45:42,066 - #29 z
+INFO  14:45:42,066 - #9 ;
+INFO  14:45:42,066 - #29 int
+INFO  14:45:42,066 - #29 a
+INFO  14:45:42,066 - #22 [
+INFO  14:45:42,068 - #23 ]
+INFO  14:45:42,068 - #9 ;
+INFO  14:45:42,068 - #7 const
+INFO  14:45:42,068 - #29 int
+INFO  14:45:42,068 - #29 konstante
+INFO  14:45:42,068 - #12 =
+INFO  14:45:42,068 - #26 5
+INFO  14:45:42,068 - #10 ,
+INFO  14:45:42,069 - #29 konstanta2
+INFO  14:45:42,069 - #12 =
+INFO  14:45:42,069 - #26 6
+INFO  14:45:42,069 - #9 ;
+INFO  14:45:42,069 - #20 {
+INFO  14:45:42,070 - #3 void
+INFO  14:45:42,070 - #29 foo
+INFO  14:45:42,070 - #24 (
+INFO  14:45:42,071 - #25 )
+INFO  14:45:42,071 - #29 int
+INFO  14:45:42,071 - #29 a
+INFO  14:45:42,071 - #9 ;
+INFO  14:45:42,071 - #29 int
+INFO  14:45:42,072 - #29 b
+INFO  14:45:42,072 - #9 ;
+INFO  14:45:42,072 - #20 {
+INFO  14:45:42,072 - #29 a
+INFO  14:45:42,072 - #12 =
+INFO  14:45:42,073 - #26 5
+INFO  14:45:42,073 - #9 ;
+INFO  14:45:42,082 - #21 }
+INFO  14:45:42,082 - #29 int
+INFO  14:45:42,082 - #29 goo
+INFO  14:45:42,082 - #24 (
+INFO  14:45:42,082 - #25 )
+INFO  14:45:42,082 - #29 bool
+INFO  14:45:42,083 - #29 b
+INFO  14:45:42,083 - #9 ;
+INFO  14:45:42,083 - #20 {
+INFO  14:45:42,083 - #21 }
+INFO  14:45:42,083 - #3 void
+INFO  14:45:42,083 - #29 fooArg
+INFO  14:45:42,083 - #24 (
+INFO  14:45:42,083 - #29 int
+INFO  14:45:42,083 - #29 a1
+INFO  14:45:42,083 - #25 )
+INFO  14:45:42,083 - #29 char
+INFO  14:45:42,084 - #29 character
+INFO  14:45:42,084 - #9 ;
+INFO  14:45:42,084 - #20 {
+INFO  14:45:42,084 - #21 }
+INFO  14:45:42,084 - #29 int
+INFO  14:45:42,084 - #29 gooArg
+INFO  14:45:42,084 - #24 (
+INFO  14:45:42,084 - #29 int
+INFO  14:45:42,084 - #29 a2
+INFO  14:45:42,084 - #25 )
+INFO  14:45:42,084 - #20 {
+INFO  14:45:42,084 - #21 }
+INFO  14:45:42,084 - #21 }
+INFO  14:45:42,086 - Program(
+  ProgramName(
+   MojProgram
+  ) [ProgramName]
+  DeclarationList(
+    DeclarationList(
+      DeclarationList(
+        DeclarationList(
+          DeclarationList(
+            NoDeclarationList(
+            ) [NoDeclarationList]
+            DeclarationVariable(
+              VarDecl(
+                TypeName(
+                 int
+                ) [TypeName]
+                VarDeclListMultiple(
+                  VarDeclListMultiple(
+                    VarDeclListSignle(
+                      VariableIdent(
+                       a
+                      ) [VariableIdent]
+                    ) [VarDeclListSignle]
+                    VariableIdent(
+                     b
+                    ) [VariableIdent]
+                  ) [VarDeclListMultiple]
+                  VariableArray(
+                   c
+                  ) [VariableArray]
+                ) [VarDeclListMultiple]
+              ) [VarDecl]
+            ) [DeclarationVariable]
+          ) [DeclarationList]
+          DeclarationVariable(
+            VarDecl(
+              TypeName(
+               bool
+              ) [TypeName]
+              VarDeclListSignle(
+                VariableIdent(
+                 b
+                ) [VariableIdent]
+              ) [VarDeclListSignle]
+            ) [VarDecl]
+          ) [DeclarationVariable]
+        ) [DeclarationList]
+        DeclarationVariable(
+          VarDecl(
+            TypeName(
+             char
+            ) [TypeName]
+            VarDeclListSignle(
+              VariableIdent(
+               z
+              ) [VariableIdent]
+            ) [VarDeclListSignle]
+          ) [VarDecl]
+        ) [DeclarationVariable]
+      ) [DeclarationList]
+      DeclarationVariable(
+        VarDecl(
+          TypeName(
+           int
+          ) [TypeName]
+          VarDeclListSignle(
+            VariableArray(
+             a
+            ) [VariableArray]
+          ) [VarDeclListSignle]
+        ) [VarDecl]
+      ) [DeclarationVariable]
+    ) [DeclarationList]
+    DeclarationConstant(
+      ConstDecl(
+        TypeName(
+         int
+        ) [TypeName]
+        ConstDeclListMultiple(
+          ConstDeclaration(
+           konstante
+            ConstTypeNumber(
+             5
+            ) [ConstTypeNumber]
+          ) [ConstDeclaration]
+          ConstDeclListSignle(
+            ConstDeclaration(
+             konstanta2
+              ConstTypeNumber(
+               6
+              ) [ConstTypeNumber]
+            ) [ConstDeclaration]
+          ) [ConstDeclListSignle]
+        ) [ConstDeclListMultiple]
+      ) [ConstDecl]
+    ) [DeclarationConstant]
+  ) [DeclarationList]
+  MethodDeclarationListMultiple(
+    MethodDeclarationListMultiple(
+      MethodDeclarationListMultiple(
+        MethodDeclarationListMultiple(
+          NoMethodDeclList(
+          ) [NoMethodDeclList]
+          MethodDeclaration(
+            MethodSignatureVoidNoPars(
+             foo
+            ) [MethodSignatureVoidNoPars]
+            VarDeclarationArray(
+              VarDeclarationArray(
+                NoVarDeclarationArray(
+                ) [NoVarDeclarationArray]
+                VarDecl(
+                  TypeName(
+                   int
+                  ) [TypeName]
+                  VarDeclListSignle(
+                    VariableIdent(
+                     a
+                    ) [VariableIdent]
+                  ) [VarDeclListSignle]
+                ) [VarDecl]
+              ) [VarDeclarationArray]
+              VarDecl(
+                TypeName(
+                 int
+                ) [TypeName]
+                VarDeclListSignle(
+                  VariableIdent(
+                   b
+                  ) [VariableIdent]
+                ) [VarDeclListSignle]
+              ) [VarDecl]
+            ) [VarDeclarationArray]
+            StatementListMultiple(
+              NoStatementList(
+              ) [NoStatementList]
+              StatementDesignator(
+                DesignatorEqualExpr(
+                  DesignatorIdent(
+                   a
+                  ) [DesignatorIdent]
+                  PositiveExpr(
+                    SignleTerm(
+                      FactorConst(
+                        ConstTypeNumber(
+                         5
+                        ) [ConstTypeNumber]
+                      ) [FactorConst]
+                    ) [SignleTerm]
+                    NoTermAddopList(
+                    ) [NoTermAddopList]
+                  ) [PositiveExpr]
+                ) [DesignatorEqualExpr]
+              ) [StatementDesignator]
+            ) [StatementListMultiple]
+          ) [MethodDeclaration]
+        ) [MethodDeclarationListMultiple]
+        MethodDeclaration(
+          MethodSignatureTypeNoPars(
+            TypeName(
+             int
+            ) [TypeName]
+           goo
+          ) [MethodSignatureTypeNoPars]
+          VarDeclarationArray(
+            NoVarDeclarationArray(
+            ) [NoVarDeclarationArray]
+            VarDecl(
+              TypeName(
+               bool
+              ) [TypeName]
+              VarDeclListSignle(
+                VariableIdent(
+                 b
+                ) [VariableIdent]
+              ) [VarDeclListSignle]
+            ) [VarDecl]
+          ) [VarDeclarationArray]
+          NoStatementList(
+          ) [NoStatementList]
+        ) [MethodDeclaration]
+      ) [MethodDeclarationListMultiple]
+      MethodDeclaration(
+        MethodSignatureVoid(
+         fooArg
+          FormParsListSignle(
+            FormPar(
+              TypeName(
+               int
+              ) [TypeName]
+             a1
+            ) [FormPar]
+          ) [FormParsListSignle]
+        ) [MethodSignatureVoid]
+        VarDeclarationArray(
+          NoVarDeclarationArray(
+          ) [NoVarDeclarationArray]
+          VarDecl(
+            TypeName(
+             char
+            ) [TypeName]
+            VarDeclListSignle(
+              VariableIdent(
+               character
+              ) [VariableIdent]
+            ) [VarDeclListSignle]
+          ) [VarDecl]
+        ) [VarDeclarationArray]
+        NoStatementList(
+        ) [NoStatementList]
+      ) [MethodDeclaration]
+    ) [MethodDeclarationListMultiple]
+    MethodDeclaration(
+      MethodSignatureType(
+        TypeName(
+         int
+        ) [TypeName]
+       gooArg
+        FormParsListSignle(
+          FormPar(
+            TypeName(
+             int
+            ) [TypeName]
+           a2
+          ) [FormPar]
+        ) [FormParsListSignle]
+      ) [MethodSignatureType]
+      NoVarDeclarationArray(
+      ) [NoVarDeclarationArray]
+      NoStatementList(
+      ) [NoStatementList]
+    ) [MethodDeclaration]
+  ) [MethodDeclarationListMultiple]
+) [Program]
+INFO  14:45:42,086 - ===================================

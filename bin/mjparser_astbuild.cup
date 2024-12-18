@@ -243,6 +243,10 @@ Factor ::=(FactorConst) ConstType:C1 {: RESULT=new FactorConst(C1); RESULT.setLi
 		(FactorExpr) LPAREN Expr:E1 RPAREN {: RESULT=new FactorExpr(E1); RESULT.setLine(E1left); :}
 		|
 		(FactorDesignator) Designator:D1 {: RESULT=new FactorDesignator(D1); RESULT.setLine(D1left); :}
+		|
+		(FactorDesignatorCallFunc) Designator:D1 LPAREN ActPars:A2 RPAREN {: RESULT=new FactorDesignatorCallFunc(D1, A2); RESULT.setLine(D1left); :}
+		|
+		(FactorDesignatorCallFuncNoPars) Designator:D1 LPAREN RPAREN {: RESULT=new FactorDesignatorCallFuncNoPars(D1); RESULT.setLine(D1left); :}
 		;
 
 Type ::= (TypeName) IDENT:typeName {: RESULT=new TypeName(typeName); RESULT.setLine(typeNameleft); :};

@@ -1,0 +1,170 @@
+INFO  15:12:45,275 - Compiling source file: C:\Users\LENOVO\Desktop\Njihov projekat\pp1lab.templateAST\pp1lab.templateAST\workspace\MJCompiler\test\test301.mj
+INFO  15:12:45,300 - #2 program
+INFO  15:12:45,300 - #29 test301
+INFO  15:12:45,300 - #7 const
+INFO  15:12:45,301 - #29 int
+INFO  15:12:45,301 - #29 nula
+INFO  15:12:45,301 - #12 =
+INFO  15:12:45,301 - #26 0
+INFO  15:12:45,301 - #9 ;
+INFO  15:12:45,302 - #7 const
+INFO  15:12:45,303 - #29 int
+INFO  15:12:45,303 - #29 jedan
+INFO  15:12:45,303 - #12 =
+INFO  15:12:45,303 - #26 1
+INFO  15:12:45,303 - #9 ;
+INFO  15:12:45,303 - #7 const
+INFO  15:12:45,303 - #29 int
+INFO  15:12:45,303 - #29 pet
+INFO  15:12:45,304 - #12 =
+INFO  15:12:45,304 - #26 5
+INFO  15:12:45,304 - #9 ;
+INFO  15:12:45,304 - #29 int
+INFO  15:12:45,304 - #29 niz
+INFO  15:12:45,304 - #22 [
+INFO  15:12:45,304 - #23 ]
+INFO  15:12:45,304 - #9 ;
+INFO  15:12:45,304 - #29 char
+INFO  15:12:45,305 - #29 nizch
+INFO  15:12:45,305 - #22 [
+INFO  15:12:45,305 - #23 ]
+INFO  15:12:45,305 - #9 ;
+INFO  15:12:45,305 - #29 int
+INFO  15:12:45,305 - #29 a
+INFO  15:12:45,306 - #9 ;
+INFO  15:12:45,306 - #29 set
+INFO  15:12:45,306 - #29 s1
+INFO  15:12:45,306 - #10 ,
+INFO  15:12:45,306 - #29 s2
+INFO  15:12:45,306 - #10 ,
+INFO  15:12:45,306 - #29 s3
+INFO  15:12:45,306 - #9 ;
+INFO  15:12:45,306 - #20 {
+INFO  15:12:45,306 - #21 }
+INFO  15:12:45,308 - Program(
+  ProgramName(
+   test301
+  ) [ProgramName]
+  DeclarationList(
+    DeclarationList(
+      DeclarationList(
+        DeclarationList(
+          DeclarationList(
+            DeclarationList(
+              DeclarationList(
+                NoDeclarationList(
+                ) [NoDeclarationList]
+                DeclarationConstant(
+                  ConstDecl(
+                    TypeName(
+                     int
+                    ) [TypeName]
+                    ConstDeclListSignle(
+                      ConstDeclaration(
+                       nula
+                        ConstTypeNumber(
+                         0
+                        ) [ConstTypeNumber]
+                      ) [ConstDeclaration]
+                    ) [ConstDeclListSignle]
+                  ) [ConstDecl]
+                ) [DeclarationConstant]
+              ) [DeclarationList]
+              DeclarationConstant(
+                ConstDecl(
+                  TypeName(
+                   int
+                  ) [TypeName]
+                  ConstDeclListSignle(
+                    ConstDeclaration(
+                     jedan
+                      ConstTypeNumber(
+                       1
+                      ) [ConstTypeNumber]
+                    ) [ConstDeclaration]
+                  ) [ConstDeclListSignle]
+                ) [ConstDecl]
+              ) [DeclarationConstant]
+            ) [DeclarationList]
+            DeclarationConstant(
+              ConstDecl(
+                TypeName(
+                 int
+                ) [TypeName]
+                ConstDeclListSignle(
+                  ConstDeclaration(
+                   pet
+                    ConstTypeNumber(
+                     5
+                    ) [ConstTypeNumber]
+                  ) [ConstDeclaration]
+                ) [ConstDeclListSignle]
+              ) [ConstDecl]
+            ) [DeclarationConstant]
+          ) [DeclarationList]
+          DeclarationVariable(
+            VarDecl(
+              TypeName(
+               int
+              ) [TypeName]
+              VarDeclListSignle(
+                VariableArray(
+                 niz
+                ) [VariableArray]
+              ) [VarDeclListSignle]
+            ) [VarDecl]
+          ) [DeclarationVariable]
+        ) [DeclarationList]
+        DeclarationVariable(
+          VarDecl(
+            TypeName(
+             char
+            ) [TypeName]
+            VarDeclListSignle(
+              VariableArray(
+               nizch
+              ) [VariableArray]
+            ) [VarDeclListSignle]
+          ) [VarDecl]
+        ) [DeclarationVariable]
+      ) [DeclarationList]
+      DeclarationVariable(
+        VarDecl(
+          TypeName(
+           int
+          ) [TypeName]
+          VarDeclListSignle(
+            VariableIdent(
+             a
+            ) [VariableIdent]
+          ) [VarDeclListSignle]
+        ) [VarDecl]
+      ) [DeclarationVariable]
+    ) [DeclarationList]
+    DeclarationVariable(
+      VarDecl(
+        TypeName(
+         set
+        ) [TypeName]
+        VarDeclListMultiple(
+          VarDeclListMultiple(
+            VarDeclListSignle(
+              VariableIdent(
+               s1
+              ) [VariableIdent]
+            ) [VarDeclListSignle]
+            VariableIdent(
+             s2
+            ) [VariableIdent]
+          ) [VarDeclListMultiple]
+          VariableIdent(
+           s3
+          ) [VariableIdent]
+        ) [VarDeclListMultiple]
+      ) [VarDecl]
+    ) [DeclarationVariable]
+  ) [DeclarationList]
+  NoMethodDeclList(
+  ) [NoMethodDeclList]
+) [Program]
+INFO  15:12:45,308 - ===================================

@@ -1,0 +1,339 @@
+INFO  14:50:16,605 - Compiling source file: C:\Users\LENOVO\Desktop\Njihov projekat\pp1lab.templateAST\pp1lab.templateAST\workspace\MJCompiler\test\syntaxTest.mj
+INFO  14:50:16,629 - #2 program
+INFO  14:50:16,629 - #29 MojProgram
+INFO  14:50:16,629 - #29 int
+INFO  14:50:16,630 - #29 a
+INFO  14:50:16,631 - #10 ,
+INFO  14:50:16,631 - #29 b
+INFO  14:50:16,631 - #10 ,
+INFO  14:50:16,631 - #29 c
+INFO  14:50:16,631 - #22 [
+INFO  14:50:16,631 - #23 ]
+INFO  14:50:16,631 - #9 ;
+INFO  14:50:16,631 - #29 bool
+INFO  14:50:16,632 - #29 b
+INFO  14:50:16,632 - #9 ;
+INFO  14:50:16,632 - #29 char
+INFO  14:50:16,632 - #29 z
+INFO  14:50:16,633 - #9 ;
+INFO  14:50:16,633 - #29 int
+INFO  14:50:16,633 - #29 a
+INFO  14:50:16,633 - #22 [
+INFO  14:50:16,635 - #23 ]
+INFO  14:50:16,635 - #9 ;
+INFO  14:50:16,635 - #7 const
+INFO  14:50:16,635 - #29 int
+INFO  14:50:16,635 - #29 konstante
+INFO  14:50:16,635 - #12 =
+INFO  14:50:16,635 - #26 5
+INFO  14:50:16,635 - #10 ,
+INFO  14:50:16,636 - #29 konstanta2
+INFO  14:50:16,636 - #12 =
+INFO  14:50:16,636 - #26 6
+INFO  14:50:16,636 - #9 ;
+INFO  14:50:16,636 - #20 {
+INFO  14:50:16,637 - #3 void
+INFO  14:50:16,637 - #29 foo
+INFO  14:50:16,638 - #24 (
+INFO  14:50:16,638 - #25 )
+INFO  14:50:16,638 - #29 int
+INFO  14:50:16,638 - #29 a
+INFO  14:50:16,639 - #9 ;
+INFO  14:50:16,639 - #29 int
+INFO  14:50:16,639 - #29 b
+INFO  14:50:16,639 - #9 ;
+INFO  14:50:16,639 - #20 {
+INFO  14:50:16,639 - #29 a
+INFO  14:50:16,640 - #12 =
+INFO  14:50:16,640 - #26 5
+INFO  14:50:16,640 - #9 ;
+INFO  14:50:16,641 - #29 a
+INFO  14:50:16,641 - #12 =
+INFO  14:50:16,641 - #15 -
+INFO  14:50:16,641 - #26 5
+INFO  14:50:16,641 - #9 ;
+INFO  14:50:16,641 - #21 }
+INFO  14:50:16,641 - #29 int
+INFO  14:50:16,641 - #29 goo
+INFO  14:50:16,641 - #24 (
+INFO  14:50:16,641 - #25 )
+INFO  14:50:16,641 - #29 bool
+INFO  14:50:16,641 - #29 b
+INFO  14:50:16,642 - #9 ;
+INFO  14:50:16,642 - #20 {
+INFO  14:50:16,642 - #21 }
+INFO  14:50:16,642 - #3 void
+INFO  14:50:16,642 - #29 fooArg
+INFO  14:50:16,642 - #24 (
+INFO  14:50:16,642 - #29 int
+INFO  14:50:16,642 - #29 a1
+INFO  14:50:16,642 - #25 )
+INFO  14:50:16,642 - #29 char
+INFO  14:50:16,642 - #29 character
+INFO  14:50:16,642 - #9 ;
+INFO  14:50:16,643 - #20 {
+INFO  14:50:16,643 - #21 }
+INFO  14:50:16,643 - #29 int
+INFO  14:50:16,643 - #29 gooArg
+INFO  14:50:16,643 - #24 (
+INFO  14:50:16,643 - #29 int
+INFO  14:50:16,643 - #29 a2
+INFO  14:50:16,643 - #25 )
+INFO  14:50:16,643 - #20 {
+INFO  14:50:16,643 - #21 }
+INFO  14:50:16,643 - #21 }
+INFO  14:50:16,645 - Program(
+  ProgramName(
+   MojProgram
+  ) [ProgramName]
+  DeclarationList(
+    DeclarationList(
+      DeclarationList(
+        DeclarationList(
+          DeclarationList(
+            NoDeclarationList(
+            ) [NoDeclarationList]
+            DeclarationVariable(
+              VarDecl(
+                TypeName(
+                 int
+                ) [TypeName]
+                VarDeclListMultiple(
+                  VarDeclListMultiple(
+                    VarDeclListSignle(
+                      VariableIdent(
+                       a
+                      ) [VariableIdent]
+                    ) [VarDeclListSignle]
+                    VariableIdent(
+                     b
+                    ) [VariableIdent]
+                  ) [VarDeclListMultiple]
+                  VariableArray(
+                   c
+                  ) [VariableArray]
+                ) [VarDeclListMultiple]
+              ) [VarDecl]
+            ) [DeclarationVariable]
+          ) [DeclarationList]
+          DeclarationVariable(
+            VarDecl(
+              TypeName(
+               bool
+              ) [TypeName]
+              VarDeclListSignle(
+                VariableIdent(
+                 b
+                ) [VariableIdent]
+              ) [VarDeclListSignle]
+            ) [VarDecl]
+          ) [DeclarationVariable]
+        ) [DeclarationList]
+        DeclarationVariable(
+          VarDecl(
+            TypeName(
+             char
+            ) [TypeName]
+            VarDeclListSignle(
+              VariableIdent(
+               z
+              ) [VariableIdent]
+            ) [VarDeclListSignle]
+          ) [VarDecl]
+        ) [DeclarationVariable]
+      ) [DeclarationList]
+      DeclarationVariable(
+        VarDecl(
+          TypeName(
+           int
+          ) [TypeName]
+          VarDeclListSignle(
+            VariableArray(
+             a
+            ) [VariableArray]
+          ) [VarDeclListSignle]
+        ) [VarDecl]
+      ) [DeclarationVariable]
+    ) [DeclarationList]
+    DeclarationConstant(
+      ConstDecl(
+        TypeName(
+         int
+        ) [TypeName]
+        ConstDeclListMultiple(
+          ConstDeclaration(
+           konstante
+            ConstTypeNumber(
+             5
+            ) [ConstTypeNumber]
+          ) [ConstDeclaration]
+          ConstDeclListSignle(
+            ConstDeclaration(
+             konstanta2
+              ConstTypeNumber(
+               6
+              ) [ConstTypeNumber]
+            ) [ConstDeclaration]
+          ) [ConstDeclListSignle]
+        ) [ConstDeclListMultiple]
+      ) [ConstDecl]
+    ) [DeclarationConstant]
+  ) [DeclarationList]
+  MethodDeclarationListMultiple(
+    MethodDeclarationListMultiple(
+      MethodDeclarationListMultiple(
+        MethodDeclarationListMultiple(
+          NoMethodDeclList(
+          ) [NoMethodDeclList]
+          MethodDeclaration(
+            MethodSignatureVoidNoPars(
+             foo
+            ) [MethodSignatureVoidNoPars]
+            VarDeclarationArray(
+              VarDeclarationArray(
+                NoVarDeclarationArray(
+                ) [NoVarDeclarationArray]
+                VarDecl(
+                  TypeName(
+                   int
+                  ) [TypeName]
+                  VarDeclListSignle(
+                    VariableIdent(
+                     a
+                    ) [VariableIdent]
+                  ) [VarDeclListSignle]
+                ) [VarDecl]
+              ) [VarDeclarationArray]
+              VarDecl(
+                TypeName(
+                 int
+                ) [TypeName]
+                VarDeclListSignle(
+                  VariableIdent(
+                   b
+                  ) [VariableIdent]
+                ) [VarDeclListSignle]
+              ) [VarDecl]
+            ) [VarDeclarationArray]
+            StatementListMultiple(
+              StatementListMultiple(
+                NoStatementList(
+                ) [NoStatementList]
+                StatementDesignator(
+                  DesignatorEqualExpr(
+                    DesignatorIdent(
+                     a
+                    ) [DesignatorIdent]
+                    PositiveExpr(
+                      SignleTerm(
+                        FactorConst(
+                          ConstTypeNumber(
+                           5
+                          ) [ConstTypeNumber]
+                        ) [FactorConst]
+                      ) [SignleTerm]
+                      NoTermAddopList(
+                      ) [NoTermAddopList]
+                    ) [PositiveExpr]
+                  ) [DesignatorEqualExpr]
+                ) [StatementDesignator]
+              ) [StatementListMultiple]
+              StatementDesignator(
+                DesignatorEqualExpr(
+                  DesignatorIdent(
+                   a
+                  ) [DesignatorIdent]
+                  NegativeExpr(
+                    SignleTerm(
+                      FactorConst(
+                        ConstTypeNumber(
+                         5
+                        ) [ConstTypeNumber]
+                      ) [FactorConst]
+                    ) [SignleTerm]
+                    NoTermAddopList(
+                    ) [NoTermAddopList]
+                  ) [NegativeExpr]
+                ) [DesignatorEqualExpr]
+              ) [StatementDesignator]
+            ) [StatementListMultiple]
+          ) [MethodDeclaration]
+        ) [MethodDeclarationListMultiple]
+        MethodDeclaration(
+          MethodSignatureTypeNoPars(
+            TypeName(
+             int
+            ) [TypeName]
+           goo
+          ) [MethodSignatureTypeNoPars]
+          VarDeclarationArray(
+            NoVarDeclarationArray(
+            ) [NoVarDeclarationArray]
+            VarDecl(
+              TypeName(
+               bool
+              ) [TypeName]
+              VarDeclListSignle(
+                VariableIdent(
+                 b
+                ) [VariableIdent]
+              ) [VarDeclListSignle]
+            ) [VarDecl]
+          ) [VarDeclarationArray]
+          NoStatementList(
+          ) [NoStatementList]
+        ) [MethodDeclaration]
+      ) [MethodDeclarationListMultiple]
+      MethodDeclaration(
+        MethodSignatureVoid(
+         fooArg
+          FormParsListSignle(
+            FormPar(
+              TypeName(
+               int
+              ) [TypeName]
+             a1
+            ) [FormPar]
+          ) [FormParsListSignle]
+        ) [MethodSignatureVoid]
+        VarDeclarationArray(
+          NoVarDeclarationArray(
+          ) [NoVarDeclarationArray]
+          VarDecl(
+            TypeName(
+             char
+            ) [TypeName]
+            VarDeclListSignle(
+              VariableIdent(
+               character
+              ) [VariableIdent]
+            ) [VarDeclListSignle]
+          ) [VarDecl]
+        ) [VarDeclarationArray]
+        NoStatementList(
+        ) [NoStatementList]
+      ) [MethodDeclaration]
+    ) [MethodDeclarationListMultiple]
+    MethodDeclaration(
+      MethodSignatureType(
+        TypeName(
+         int
+        ) [TypeName]
+       gooArg
+        FormParsListSignle(
+          FormPar(
+            TypeName(
+             int
+            ) [TypeName]
+           a2
+          ) [FormPar]
+        ) [FormParsListSignle]
+      ) [MethodSignatureType]
+      NoVarDeclarationArray(
+      ) [NoVarDeclarationArray]
+      NoStatementList(
+      ) [NoStatementList]
+    ) [MethodDeclaration]
+  ) [MethodDeclarationListMultiple]
+) [Program]
+INFO  14:50:16,645 - ===================================
