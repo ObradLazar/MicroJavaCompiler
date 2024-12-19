@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 14/11/2024 15:27:47
+// 19/11/2024 19:40:53
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,6 +9,8 @@ public class ProgramName implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
+
     private String name;
 
     public ProgramName (String name) {

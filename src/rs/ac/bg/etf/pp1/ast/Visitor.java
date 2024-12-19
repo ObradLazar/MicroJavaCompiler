@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 14/11/2024 15:27:47
+// 19/11/2024 19:40:54
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,17 +9,15 @@ public interface Visitor {
 
     public void visit(Designator Designator);
     public void visit(MethodDecl MethodDecl);
+    public void visit(MethodType MethodType);
     public void visit(Factor Factor);
-    public void visit(AddopTermList AddopTermList);
     public void visit(Mulop Mulop);
     public void visit(DesignatorStatement DesignatorStatement);
     public void visit(ConstType ConstType);
     public void visit(Declaration Declaration);
     public void visit(Expr Expr);
-    public void visit(Type Type);
     public void visit(FormPars FormPars);
     public void visit(VarDeclList VarDeclList);
-    public void visit(MethodSignature MethodSignature);
     public void visit(ConstDeclList ConstDeclList);
     public void visit(Addop Addop);
     public void visit(MethodDeclList MethodDeclList);
@@ -27,12 +25,13 @@ public interface Visitor {
     public void visit(Variable Variable);
     public void visit(Statement Statement);
     public void visit(FormParsList FormParsList);
+    public void visit(FormParsExist FormParsExist);
     public void visit(Setop Setop);
     public void visit(VarDeclArray VarDeclArray);
     public void visit(Term Term);
     public void visit(ActPars ActPars);
     public void visit(StatementList StatementList);
-    public void visit(TypeName TypeName);
+    public void visit(Type Type);
     public void visit(FactorDesignatorCallFuncNoPars FactorDesignatorCallFuncNoPars);
     public void visit(FactorDesignatorCallFunc FactorDesignatorCallFunc);
     public void visit(FactorDesignator FactorDesignator);
@@ -49,10 +48,9 @@ public interface Visitor {
     public void visit(Minus Minus);
     public void visit(Plus Plus);
     public void visit(Union Union);
-    public void visit(NoTermAddopList NoTermAddopList);
-    public void visit(MultipleTermAddopList MultipleTermAddopList);
-    public void visit(NegativeExpr NegativeExpr);
-    public void visit(PositiveExpr PositiveExpr);
+    public void visit(ExprAddop ExprAddop);
+    public void visit(ExprNegative ExprNegative);
+    public void visit(ExprPositive ExprPositive);
     public void visit(DesignatorIdentExpr DesignatorIdentExpr);
     public void visit(DesignatorIdent DesignatorIdent);
     public void visit(DesignatorNoActPars DesignatorNoActPars);
@@ -73,16 +71,16 @@ public interface Visitor {
     public void visit(FormPar FormPar);
     public void visit(FormParsListSignle FormParsListSignle);
     public void visit(FormParsListMultiple FormParsListMultiple);
+    public void visit(NoFormPars NoFormPars);
+    public void visit(FormParsDoExist FormParsDoExist);
     public void visit(ConstTypeCharacter ConstTypeCharacter);
     public void visit(ConstTypeBoolean ConstTypeBoolean);
     public void visit(ConstTypeNumber ConstTypeNumber);
     public void visit(NoVarDeclarationArray NoVarDeclarationArray);
     public void visit(VarDeclarationArray VarDeclarationArray);
     public void visit(MethodDeclaration MethodDeclaration);
-    public void visit(MethodSignatureTypeNoPars MethodSignatureTypeNoPars);
-    public void visit(MethodSignatureVoidNoPars MethodSignatureVoidNoPars);
-    public void visit(MethodSignatureVoid MethodSignatureVoid);
-    public void visit(MethodSignatureType MethodSignatureType);
+    public void visit(MethVoid MethVoid);
+    public void visit(MethType MethType);
     public void visit(VariableArray VariableArray);
     public void visit(VariableIdent VariableIdent);
     public void visit(VarDeclListSignle VarDeclListSignle);

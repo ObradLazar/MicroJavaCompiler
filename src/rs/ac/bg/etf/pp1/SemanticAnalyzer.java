@@ -1,18 +1,20 @@
 package rs.ac.bg.etf.pp1;
 
-import java_cup.runtime.*;
 import org.apache.log4j.*;
 import rs.ac.bg.etf.pp1.ast.*;
-import rs.etf.pp1.symboltable.concepts.Obj;
+
+
+
+import rs.etf.pp1.symboltable.*;
+import rs.etf.pp1.symboltable.concepts.*;
 
 public class SemanticAnalyzer extends VisitorAdaptor{
 	
-	int printCallCount = 0;
-	int varDeclCount = 0;
-	Obj currentMethod = null;
+	//Obj currentMethod = null;
 	boolean returnFound = false;
 	boolean errorDetected = false;
 	int nVars;
+	boolean mainMethodExists = false;
 	
 	Logger log = Logger.getLogger(getClass());
 
@@ -33,21 +35,38 @@ public class SemanticAnalyzer extends VisitorAdaptor{
 		log.info(msg.toString());
 	}
 	
+	public void visit(ProgramName ProgramName) { 
+		ProgramName.obj = SymbolTable.insert(Obj.Prog, ProgramName.getName(), SymbolTable.noType);
+		SymbolTable.openScope();
+	}
+	
+	public void visit(Program Program) { 
+		if(!mainMethodExists) {
+			report_error("Main metoda nije pronadjena, ", Program);
+		}
+		
+		SymbolTable.chainLocalSymbols(Program.getProgramName().obj);
+		SymbolTable.closeScope();
+	}
+	
+	public void visit(Type Type) { 
+		
+	}
+	
 	/*
 	 * ALL METHODS
 	public void visit(Designator Designator) { }
     public void visit(MethodDecl MethodDecl) { }
+    public void visit(MethodType MethodType) { }
     public void visit(Factor Factor) { }
-    public void visit(AddopTermList AddopTermList) { }
     public void visit(Mulop Mulop) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
     public void visit(ConstType ConstType) { }
     public void visit(Declaration Declaration) { }
     public void visit(Expr Expr) { }
-    public void visit(Type Type) { }
+    
     public void visit(FormPars FormPars) { }
     public void visit(VarDeclList VarDeclList) { }
-    public void visit(MethodSignature MethodSignature) { }
     public void visit(ConstDeclList ConstDeclList) { }
     public void visit(Addop Addop) { }
     public void visit(MethodDeclList MethodDeclList) { }
@@ -55,6 +74,7 @@ public class SemanticAnalyzer extends VisitorAdaptor{
     public void visit(Variable Variable) { }
     public void visit(Statement Statement) { }
     public void visit(FormParsList FormParsList) { }
+    public void visit(FormParsExist FormParsExist) { }
     public void visit(Setop Setop) { }
     public void visit(VarDeclArray VarDeclArray) { }
     public void visit(Term Term) { }
@@ -77,10 +97,9 @@ public class SemanticAnalyzer extends VisitorAdaptor{
     public void visit(Minus Minus) { visit(); }
     public void visit(Plus Plus) { visit(); }
     public void visit(Union Union) { visit(); }
-    public void visit(NoTermAddopList NoTermAddopList) { visit(); }
-    public void visit(MultipleTermAddopList MultipleTermAddopList) { visit(); }
-    public void visit(NegativeExpr NegativeExpr) { visit(); }
-    public void visit(PositiveExpr PositiveExpr) { visit(); }
+    public void visit(ExprAddop ExprAddop) { visit(); }
+    public void visit(ExprNegative ExprNegative) { visit(); }
+    public void visit(ExprPositive ExprPositive) { visit(); }
     public void visit(DesignatorIdentExpr DesignatorIdentExpr) { visit(); }
     public void visit(DesignatorIdent DesignatorIdent) { visit(); }
     public void visit(DesignatorNoActPars DesignatorNoActPars) { visit(); }
@@ -101,16 +120,16 @@ public class SemanticAnalyzer extends VisitorAdaptor{
     public void visit(FormPar FormPar) { visit(); }
     public void visit(FormParsListSignle FormParsListSignle) { visit(); }
     public void visit(FormParsListMultiple FormParsListMultiple) { visit(); }
+    public void visit(NoFormPars NoFormPars) { visit(); }
+    public void visit(FormParsDoExist FormParsDoExist) { visit(); }
     public void visit(ConstTypeCharacter ConstTypeCharacter) { visit(); }
     public void visit(ConstTypeBoolean ConstTypeBoolean) { visit(); }
     public void visit(ConstTypeNumber ConstTypeNumber) { visit(); }
     public void visit(NoVarDeclarationArray NoVarDeclarationArray) { visit(); }
     public void visit(VarDeclarationArray VarDeclarationArray) { visit(); }
     public void visit(MethodDeclaration MethodDeclaration) { visit(); }
-    public void visit(MethodSignatureTypeNoPars MethodSignatureTypeNoPars) { visit(); }
-    public void visit(MethodSignatureVoidNoPars MethodSignatureVoidNoPars) { visit(); }
-    public void visit(MethodSignatureVoid MethodSignatureVoid) { visit(); }
-    public void visit(MethodSignatureType MethodSignatureType) { visit(); }
+    public void visit(MethVoid MethVoid) { visit(); }
+    public void visit(MethType MethType) { visit(); }
     public void visit(VariableArray VariableArray) { visit(); }
     public void visit(VariableIdent VariableIdent) { visit(); }
     public void visit(VarDeclListSignle VarDeclListSignle) { visit(); }
@@ -126,8 +145,6 @@ public class SemanticAnalyzer extends VisitorAdaptor{
     public void visit(DeclarationConstant DeclarationConstant) { visit(); }
     public void visit(NoDeclarationList NoDeclarationList) { visit(); }
     public void visit(DeclarationList DeclarationList) { visit(); }
-    public void visit(ProgramName ProgramName) { visit(); }
-    public void visit(Program Program) { visit(); }
 	 * */
 	
 	

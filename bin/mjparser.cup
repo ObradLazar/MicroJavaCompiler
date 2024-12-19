@@ -63,16 +63,17 @@ terminal Boolean CONSTBOOLEAN;
 terminal Character CONSTCHAR;
 terminal String IDENT;
 
-nonterminal Program, ProgramName;
 nonterminal DeclList, Declaration, MethodDeclList;
 nonterminal ConstDecl, ConstDeclList, ConstDeclaration, ConstType;
 nonterminal VarDecl, VarDeclList, Variable, VarDeclArray;
-nonterminal MethodSignature, MethodDecl;
-nonterminal FormParsList, FormPars;
+nonterminal MethodDecl, MethodType;
+nonterminal FormParsList, FormPars, FormParsExist;
 nonterminal StatementList, Statement;
 nonterminal DesignatorStatement, Designator;
-nonterminal Type, Expr, AddopTermList, Term, ActPars, Factor;
-nonterminal Setop, Addop, Mulop;
+nonterminal Expr, Term, ActPars, Factor;
+nonterminal Setop, Addop, Mulop, Type;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program;
 
 Program ::= (Program) PROG ProgramName DeclList LBRACE MethodDeclList RBRACE;
 
@@ -102,7 +103,7 @@ ConstDeclList ::=(ConstDeclListMultiple) ConstDeclaration COMMA ConstDeclList
 
 ConstDeclaration ::= (ConstDeclaration) IDENT:name EQUAL ConstType;
 
-VarDecl ::=(VarDecl) Type VarDeclList SEMI;
+VarDecl ::= (VarDecl) Type VarDeclList SEMI;
 
 VarDeclList ::= (VarDeclListMultiple) VarDeclList COMMA Variable
             |
@@ -113,21 +114,17 @@ Variable ::= (VariableIdent) IDENT:varName
             |
             (VariableArray) IDENT:varName LBRACKET RBRACKET
             ;
+                
+MethodType ::= (MethType) Type
+			|
+			(MethVoid) VOID
+			;
 
-MethodSignature ::=(MethodSignatureType) Type IDENT:methodName LPAREN FormParsList RPAREN
-                |
-                (MethodSignatureVoid) VOID IDENT:methodName LPAREN FormParsList RPAREN
-                |
-                (MethodSignatureVoidNoPars) VOID IDENT:methodName LPAREN RPAREN
-				|
-				(MethodSignatureTypeNoPars) Type IDENT:methodName LPAREN  RPAREN
-                ;
-
-MethodDecl ::=(MethodDeclaration) MethodSignature VarDeclArray LBRACE StatementList RBRACE;
+MethodDecl ::=(MethodDeclaration) MethodType IDENT:methodName LPAREN FormParsExist RPAREN VarDeclArray LBRACE StatementList RBRACE;
 
 VarDeclArray ::=(VarDeclarationArray) VarDeclArray VarDecl
                 |
-                (NoVarDeclarationArray)/* epsilon */
+                (NoVarDeclarationArray) /* epsilon */
                 ;
 
 ConstType ::= (ConstTypeNumber) CONSTNUMBER:numberConst
@@ -137,7 +134,12 @@ ConstType ::= (ConstTypeNumber) CONSTNUMBER:numberConst
             (ConstTypeCharacter) CONSTCHAR:charConst
             ;
 
-FormParsList ::=(FormParsListMultiple) FormParsList COMMA FormPars
+FormParsExist ::= (FormParsDoExist) FormParsList
+				|
+				(NoFormPars) /* epsilon */
+				;
+
+FormParsList ::=(FormParsListMultiple) FormPars COMMA FormParsList
                 |
                 (FormParsListSignle) FormPars
                 ;
@@ -183,15 +185,12 @@ Designator ::= (DesignatorIdent) IDENT:designatorName
 			(DesignatorIdentExpr) IDENT:designatorName LBRACKET Expr RBRACKET
 			;
 
-Expr ::=(PositiveExpr) Term AddopTermList
+Expr ::=(ExprPositive) Term
 		|
-		(NegativeExpr) MINUS Term AddopTermList
+		(ExprNegative) MINUS Term
+		|
+		(ExprAddop) Expr Addop Term
 		;
-	
-AddopTermList ::=(MultipleTermAddopList) AddopTermList Addop Term
-				|
-				(NoTermAddopList) /* epsilon */
-				;
 	
 Setop ::= (Union) UNION;
 
@@ -229,7 +228,7 @@ Factor ::=(FactorConst) ConstType
 		(FactorDesignatorCallFuncNoPars) Designator LPAREN RPAREN
 		;
 
-Type ::= (TypeName) IDENT:typeName;
+Type ::= (Type) IDENT:typeName;
 
 
 

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 14/11/2024 15:27:47
+// 19/11/2024 19:40:54
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,17 +9,15 @@ public abstract class VisitorAdaptor implements Visitor {
 
     public void visit(Designator Designator) { }
     public void visit(MethodDecl MethodDecl) { }
+    public void visit(MethodType MethodType) { }
     public void visit(Factor Factor) { }
-    public void visit(AddopTermList AddopTermList) { }
     public void visit(Mulop Mulop) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
     public void visit(ConstType ConstType) { }
     public void visit(Declaration Declaration) { }
     public void visit(Expr Expr) { }
-    public void visit(Type Type) { }
     public void visit(FormPars FormPars) { }
     public void visit(VarDeclList VarDeclList) { }
-    public void visit(MethodSignature MethodSignature) { }
     public void visit(ConstDeclList ConstDeclList) { }
     public void visit(Addop Addop) { }
     public void visit(MethodDeclList MethodDeclList) { }
@@ -27,12 +25,13 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Variable Variable) { }
     public void visit(Statement Statement) { }
     public void visit(FormParsList FormParsList) { }
+    public void visit(FormParsExist FormParsExist) { }
     public void visit(Setop Setop) { }
     public void visit(VarDeclArray VarDeclArray) { }
     public void visit(Term Term) { }
     public void visit(ActPars ActPars) { }
     public void visit(StatementList StatementList) { }
-    public void visit(TypeName TypeName) { visit(); }
+    public void visit(Type Type) { visit(); }
     public void visit(FactorDesignatorCallFuncNoPars FactorDesignatorCallFuncNoPars) { visit(); }
     public void visit(FactorDesignatorCallFunc FactorDesignatorCallFunc) { visit(); }
     public void visit(FactorDesignator FactorDesignator) { visit(); }
@@ -49,10 +48,9 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Minus Minus) { visit(); }
     public void visit(Plus Plus) { visit(); }
     public void visit(Union Union) { visit(); }
-    public void visit(NoTermAddopList NoTermAddopList) { visit(); }
-    public void visit(MultipleTermAddopList MultipleTermAddopList) { visit(); }
-    public void visit(NegativeExpr NegativeExpr) { visit(); }
-    public void visit(PositiveExpr PositiveExpr) { visit(); }
+    public void visit(ExprAddop ExprAddop) { visit(); }
+    public void visit(ExprNegative ExprNegative) { visit(); }
+    public void visit(ExprPositive ExprPositive) { visit(); }
     public void visit(DesignatorIdentExpr DesignatorIdentExpr) { visit(); }
     public void visit(DesignatorIdent DesignatorIdent) { visit(); }
     public void visit(DesignatorNoActPars DesignatorNoActPars) { visit(); }
@@ -73,16 +71,16 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FormPar FormPar) { visit(); }
     public void visit(FormParsListSignle FormParsListSignle) { visit(); }
     public void visit(FormParsListMultiple FormParsListMultiple) { visit(); }
+    public void visit(NoFormPars NoFormPars) { visit(); }
+    public void visit(FormParsDoExist FormParsDoExist) { visit(); }
     public void visit(ConstTypeCharacter ConstTypeCharacter) { visit(); }
     public void visit(ConstTypeBoolean ConstTypeBoolean) { visit(); }
     public void visit(ConstTypeNumber ConstTypeNumber) { visit(); }
     public void visit(NoVarDeclarationArray NoVarDeclarationArray) { visit(); }
     public void visit(VarDeclarationArray VarDeclarationArray) { visit(); }
     public void visit(MethodDeclaration MethodDeclaration) { visit(); }
-    public void visit(MethodSignatureTypeNoPars MethodSignatureTypeNoPars) { visit(); }
-    public void visit(MethodSignatureVoidNoPars MethodSignatureVoidNoPars) { visit(); }
-    public void visit(MethodSignatureVoid MethodSignatureVoid) { visit(); }
-    public void visit(MethodSignatureType MethodSignatureType) { visit(); }
+    public void visit(MethVoid MethVoid) { visit(); }
+    public void visit(MethType MethType) { visit(); }
     public void visit(VariableArray VariableArray) { visit(); }
     public void visit(VariableIdent VariableIdent) { visit(); }
     public void visit(VarDeclListSignle VarDeclListSignle) { visit(); }
