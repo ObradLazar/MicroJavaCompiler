@@ -10,7 +10,7 @@ public class SymbolTable extends Tab {
 	
 	public static void init() {
 		Tab.init();
-		currentScope.addToLocals(new Obj(Obj.Type, "boolean", booleanType));
+		currentScope.addToLocals(new Obj(Obj.Type, "bool", booleanType));
 		currentScope.addToLocals(new Obj(Obj.Type, "set", setType));
 	}
 	

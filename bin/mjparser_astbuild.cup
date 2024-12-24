@@ -69,12 +69,10 @@ nonterminal MethodDeclList MethodDeclList;
 nonterminal ConstDecl ConstDecl;
 nonterminal ConstDeclList ConstDeclList;
 nonterminal ConstDeclaration ConstDeclaration;
-nonterminal ConstType ConstType;
 nonterminal VarDecl VarDecl;
 nonterminal VarDeclList VarDeclList;
 nonterminal Variable Variable;
 nonterminal VarDeclArray VarDeclArray;
-nonterminal MethodDecl MethodDecl;
 nonterminal MethodType MethodType;
 nonterminal FormParsList FormParsList;
 nonterminal FormPars FormPars;
@@ -86,13 +84,12 @@ nonterminal Designator Designator;
 nonterminal Expr Expr;
 nonterminal Term Term;
 nonterminal ActPars ActPars;
-nonterminal Factor Factor;
 nonterminal Setop Setop;
 nonterminal Addop Addop;
 nonterminal Mulop Mulop;
-nonterminal Type Type;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodName, MethodDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, ConstType, Factor;
 
 Program ::= (Program) PROG ProgramName:P1 DeclList:D2 LBRACE MethodDeclList:M3 RBRACE {: RESULT=new Program(P1, D2, M3); RESULT.setLine(P1left); :};
 
@@ -126,7 +123,7 @@ VarDecl ::= (VarDecl) Type:T1 VarDeclList:V2 SEMI {: RESULT=new VarDecl(T1, V2);
 
 VarDeclList ::= (VarDeclListMultiple) VarDeclList:V1 COMMA Variable:V2 {: RESULT=new VarDeclListMultiple(V1, V2); RESULT.setLine(V1left); :}
             |
-            (VarDeclListSignle) Variable:V1 {: RESULT=new VarDeclListSignle(V1); RESULT.setLine(V1left); :}
+            (VarDeclListSingle) Variable:V1 {: RESULT=new VarDeclListSingle(V1); RESULT.setLine(V1left); :}
             ;
 
 Variable ::= (VariableIdent) IDENT:varName {: RESULT=new VariableIdent(varName); RESULT.setLine(varNameleft); :}
@@ -139,7 +136,9 @@ MethodType ::= (MethType) Type:T1 {: RESULT=new MethType(T1); RESULT.setLine(T1l
 			(MethVoid) VOID {: RESULT=new MethVoid(); :}
 			;
 
-MethodDecl ::=(MethodDeclaration) MethodType:M1 IDENT:methodName LPAREN FormParsExist:F2 RPAREN VarDeclArray:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDeclaration(M1, methodName, F2, V3, S4); RESULT.setLine(M1left); :};
+MethodDecl ::=(MethodDeclaration) MethodType:M1 MethodName:M2 LPAREN FormParsExist:F3 RPAREN VarDeclArray:V4 LBRACE StatementList:S5 RBRACE {: RESULT=new MethodDeclaration(M1, M2, F3, V4, S5); RESULT.setLine(M1left); :};
+
+MethodName ::= (MethodName) IDENT:metodName {: RESULT=new MethodName(metodName); RESULT.setLine(metodNameleft); :};
 
 VarDeclArray ::=(VarDeclarationArray) VarDeclArray:V1 VarDecl:V2 {: RESULT=new VarDeclarationArray(V1, V2); RESULT.setLine(V1left); :}
                 |

@@ -1,15 +1,15 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/11/2024 19:40:54
+// 24/11/2024 15:36:35
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class VarDeclListSignle extends VarDeclList {
+public class VarDeclListSingle extends VarDeclList {
 
     private Variable Variable;
 
-    public VarDeclListSignle (Variable Variable) {
+    public VarDeclListSingle (Variable Variable) {
         this.Variable=Variable;
         if(Variable!=null) Variable.setParent(this);
     }
@@ -43,7 +43,7 @@ public class VarDeclListSignle extends VarDeclList {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("VarDeclListSignle(\n");
+        buffer.append("VarDeclListSingle(\n");
 
         if(Variable!=null)
             buffer.append(Variable.toString("  "+tab));
@@ -52,7 +52,7 @@ public class VarDeclListSignle extends VarDeclList {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [VarDeclListSignle]");
+        buffer.append(") [VarDeclListSingle]");
         return buffer.toString();
     }
 }

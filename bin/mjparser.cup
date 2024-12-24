@@ -64,16 +64,17 @@ terminal Character CONSTCHAR;
 terminal String IDENT;
 
 nonterminal DeclList, Declaration, MethodDeclList;
-nonterminal ConstDecl, ConstDeclList, ConstDeclaration, ConstType;
+nonterminal ConstDecl, ConstDeclList, ConstDeclaration;
 nonterminal VarDecl, VarDeclList, Variable, VarDeclArray;
-nonterminal MethodDecl, MethodType;
+nonterminal MethodType;
 nonterminal FormParsList, FormPars, FormParsExist;
 nonterminal StatementList, Statement;
 nonterminal DesignatorStatement, Designator;
-nonterminal Expr, Term, ActPars, Factor;
-nonterminal Setop, Addop, Mulop, Type;
+nonterminal Term, ActPars;
+nonterminal Setop, Addop, Mulop;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodName, MethodDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, ConstType, Factor, Expr;
 
 Program ::= (Program) PROG ProgramName DeclList LBRACE MethodDeclList RBRACE;
 
@@ -107,7 +108,7 @@ VarDecl ::= (VarDecl) Type VarDeclList SEMI;
 
 VarDeclList ::= (VarDeclListMultiple) VarDeclList COMMA Variable
             |
-            (VarDeclListSignle) Variable
+            (VarDeclListSingle) Variable
             ;
 
 Variable ::= (VariableIdent) IDENT:varName
@@ -120,7 +121,9 @@ MethodType ::= (MethType) Type
 			(MethVoid) VOID
 			;
 
-MethodDecl ::=(MethodDeclaration) MethodType IDENT:methodName LPAREN FormParsExist RPAREN VarDeclArray LBRACE StatementList RBRACE;
+MethodDecl ::=(MethodDeclaration) MethodType MethodName LPAREN FormParsExist RPAREN VarDeclArray LBRACE StatementList RBRACE;
+
+MethodName ::= (MethodName) IDENT:metodName;
 
 VarDeclArray ::=(VarDeclarationArray) VarDeclArray VarDecl
                 |

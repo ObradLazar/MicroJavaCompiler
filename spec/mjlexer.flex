@@ -89,7 +89,7 @@ import java_cup.runtime.Symbol;
  
 // Constants
 [0-9]+  			{ return new_symbol(sym.CONSTNUMBER, Integer.valueOf(yytext())); }
-"true"|"false"  { return new_symbol(sym.CONSTBOOLEAN, Boolean.valueOf(yytext())); }
+"true"|"false"  	{ return new_symbol(sym.CONSTBOOLEAN, Boolean.valueOf(yytext())); }
 "'"[a-zA-Z0-9]"'" 	{ return new_symbol(sym.CONSTCHAR, yytext().charAt(1)); }
 
 // Identifier

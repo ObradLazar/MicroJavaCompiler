@@ -7,6 +7,8 @@
 				<exclude name="sym_old.java"/>
 				<exclude name="util/Log4JUtils.java"/>
 				<exclude name="SemanticAnalyzer.java"/>
+				<exclude name="SymbolTable.java"/>
+				<exclude name="Compiler.java"/>
 			</fileset>
 		</delete>
 		<delete>
