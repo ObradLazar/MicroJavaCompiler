@@ -69,12 +69,12 @@ nonterminal VarDecl, VarDeclList, Variable, VarDeclArray;
 nonterminal MethodType;
 nonterminal FormParsList, FormPars, FormParsExist;
 nonterminal StatementList, Statement;
-nonterminal DesignatorStatement, Designator;
-nonterminal Term, ActPars;
+nonterminal DesignatorStatement;
+nonterminal ActPars;
 nonterminal Setop, Addop, Mulop;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodName, MethodDecl;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, ConstType, Factor, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodName, MethodDecl, Designator;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, ConstType, Factor, Expr, Term;
 
 Program ::= (Program) PROG ProgramName DeclList LBRACE MethodDeclList RBRACE;
 
@@ -211,7 +211,8 @@ Mulop ::=(Mul) MUL
 
 Term ::=(MultipleTerm) Term Mulop Factor
 		|
-		(SignleTerm) Factor;
+		(SignleTerm) Factor
+		;
 
 ActPars ::= (MultipleActPars) ActPars COMMA Expr
 			|

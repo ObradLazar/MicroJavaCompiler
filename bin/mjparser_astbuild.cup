@@ -80,16 +80,13 @@ nonterminal FormParsExist FormParsExist;
 nonterminal StatementList StatementList;
 nonterminal Statement Statement;
 nonterminal DesignatorStatement DesignatorStatement;
-nonterminal Designator Designator;
-nonterminal Expr Expr;
-nonterminal Term Term;
 nonterminal ActPars ActPars;
 nonterminal Setop Setop;
 nonterminal Addop Addop;
 nonterminal Mulop Mulop;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodName, MethodDecl;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, ConstType, Factor;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodName, MethodDecl, Designator;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, ConstType, Factor, Expr, Term;
 
 Program ::= (Program) PROG ProgramName:P1 DeclList:D2 LBRACE MethodDeclList:M3 RBRACE {: RESULT=new Program(P1, D2, M3); RESULT.setLine(P1left); :};
 
@@ -226,7 +223,8 @@ Mulop ::=(Mul) MUL {: RESULT=new Mul(); :}
 
 Term ::=(MultipleTerm) Term:T1 Mulop:M2 Factor:F3 {: RESULT=new MultipleTerm(T1, M2, F3); RESULT.setLine(T1left); :}
 		|
-		(SignleTerm) Factor:F1 {: RESULT=new SignleTerm(F1); RESULT.setLine(F1left); :};
+		(SignleTerm) Factor:F1 {: RESULT=new SignleTerm(F1); RESULT.setLine(F1left); :}
+		;
 
 ActPars ::= (MultipleActPars) ActPars:A1 COMMA Expr:E2 {: RESULT=new MultipleActPars(A1, E2); RESULT.setLine(A1left); :}
 			|

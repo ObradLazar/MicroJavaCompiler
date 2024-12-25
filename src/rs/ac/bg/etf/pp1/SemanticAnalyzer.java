@@ -1,6 +1,7 @@
 package rs.ac.bg.etf.pp1;
 
 import org.apache.log4j.*;
+
 import rs.ac.bg.etf.pp1.ast.*;
 
 import rs.etf.pp1.symboltable.*;
@@ -18,6 +19,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	int numberOfGlobalVariables = 0;
 	int variableCounter = 0;
 	boolean voidMethod = false;
+	int argumentCounter = 0;
 
 	Logger log = Logger.getLogger(getClass());
 
@@ -66,13 +68,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		// ovde cuvam trenutni tip za deklaraciju const i var
 		currentType = typeExist.getType();
 		Type.struct = typeExist.getType();
 
 		return;
 	}
 
+	//		VARIABLES
+	
 	public void visit(VariableIdent VariableIdent) {
 		Obj var = SymbolTable.insert(Obj.Var, VariableIdent.getVarName(), currentType);
 		if(var == SymbolTable.noObj) {
@@ -102,6 +105,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		var.setAdr(variableCounter++);
 	}
+	
+	//		CONSTANTS
 	
 	public void visit(ConstTypeCharacter ConstTypeCharacter) { 
 		Character constChar = ConstTypeCharacter.getCharConst();
@@ -137,6 +142,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	constant.setAdr(currentConstIntegerValue);
     }
     
+    //		METHOD
+    
     public void visit(MethodName MethodName) {
     	returnFound = false;
     	Struct typeOfMethod = SymbolTable.noType;
@@ -160,9 +167,30 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	SymbolTable.openScope();
     }
     
+    public void visit(MethodDecl MethodDecl) {
+    	
+    	if(currentMethod.getType() != SymbolTable.noType && !returnFound) {
+    		report_error("Metoda mora imati povratnu vrednost.", MethodDecl);
+    		return;
+    	}
+    	
+    	returnFound = false;
+    	
+    	currentMethod.setLevel(argumentCounter);
+    	
+    	SymbolTable.chainLocalSymbols(currentMethod);
+    	SymbolTable.closeScope();
+    	
+    	argumentCounter = 0;
+    	variableCounter = 0;
+    	currentMethod = null;
+    }
+    
     public void visit(MethVoid MethVoid) { 
     	voidMethod = true;
     }
+    
+    //		FORMPARS
     
     public void visit(FormParsList FormParsList) {
     	if(currentMethod.getName().equals("main")) {
@@ -171,13 +199,99 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	}
     }
     
+    public void visit(FormParArray FormParArray) {
+    	Obj parameter = SymbolTable.find(FormParArray.getParName());
+    	if(parameter != SymbolTable.noObj) {
+    		report_error("Simbol sa ovim imenom vec postoji.", FormParArray);
+    		return;
+    	}
+    	Struct arrayType = new Struct(Struct.Array, currentType);
+    	parameter = SymbolTable.insert(Obj.Var, FormParArray.getParName(), arrayType);
+    	if(parameter == SymbolTable.noObj) {
+    		report_error("Greska pri ubacivanju argumenta u tabelu simbola.", FormParArray);
+    		return;
+    	}
+    	argumentCounter++;
+    }
+	public void visit(FormPar FormPar) {
+		Obj parameter = SymbolTable.find(FormPar.getParName());
+    	if(parameter != SymbolTable.noObj) {
+    		report_error("Simbol sa ovim imenom vec postoji.", FormPar);
+    		return;
+    	}
+    	parameter = SymbolTable.insert(Obj.Var, FormPar.getParName(), FormPar.getType().struct);
+    	if(parameter == SymbolTable.noObj) {
+    		report_error("Greska pri ubacivanju argumenta u tabelu simbola.", FormPar);
+    		return;
+    	}
+    	argumentCounter++;
+	}
+    
+	//		STATEMENTS
+	
     public void visit(StatementReturnEmpty StatementReturnEmpty) { 
+    	if(currentMethod == null) {
+    		report_error("Return se mora nalaziti unutar neke metode.", StatementReturnEmpty);
+    		return;
+    	}
     	if(!voidMethod) {
     		report_error("Metoda mora imati povratnu vrednost.", StatementReturnEmpty);
     		return;
     	}
-    	returnFound = true;
+    	returnFound = false;
     }
+    
+    public void visit(StatementReturnSomething StatementReturnSomething) {
+    	if(currentMethod == null) {
+    		report_error("Return se mora nalaziti unutar neke metode.", StatementReturnSomething);
+    		return;
+    	}
+    	if(voidMethod) {
+    		report_error("Void metoda ne sme imati povratnu vrednost." ,StatementReturnSomething);
+    		return;
+    	}
+    	if(!StatementReturnSomething.getExpr().struct.equals(currentMethod.getType())) {
+    		report_error("Ne poklapa se tip metode sa tipom povratne vrednosti." ,StatementReturnSomething);
+    		return;
+    	}
+    	
+    	returnFound = true;
+    	
+    }
+    
+    public void visit(StatementPrintMultiple StatementPrintMultiple) { 
+    	if(!StatementPrintMultiple.getExpr().struct.equals(SymbolTable.intType) &&
+    			!StatementPrintMultiple.getExpr().struct.equals(SymbolTable.booleanType) &&
+    			!StatementPrintMultiple.getExpr().struct.equals(SymbolTable.charType) && 
+    			!StatementPrintMultiple.getExpr().struct.equals(SymbolTable.setType)) {
+    		report_error("Tip mora biti int, bool, char ili set.", StatementPrintMultiple);
+    		return;
+    	}
+    }
+    public void visit(StatementPrint StatementPrint) { 
+    	if(!StatementPrint.getExpr().struct.equals(SymbolTable.intType) &&
+    			!StatementPrint.getExpr().struct.equals(SymbolTable.booleanType) &&
+    			!StatementPrint.getExpr().struct.equals(SymbolTable.charType) && 
+    			!StatementPrint.getExpr().struct.equals(SymbolTable.setType)) {
+    		report_error("Tip mora biti int, bool, char ili set.", StatementPrint);
+    		return;
+    	}
+    }
+    
+    public void visit(StatementRead StatementRead) {
+    	if(StatementRead.getDesignator().obj.getKind() != Obj.Var) {
+    		report_error("Vrednost u zagradama mora biti promenljiva.", StatementRead);
+    		return;
+    	}
+    	if(!StatementRead.getDesignator().obj.getType().equals(SymbolTable.intType) && 
+    			!StatementRead.getDesignator().obj.getType().equals(SymbolTable.booleanType) &&
+    			!StatementRead.getDesignator().obj.getType().equals(SymbolTable.charType)) {
+    		report_error("Podatak mora biti tipa bool, int ili char.", StatementRead);
+    		return;
+    	}
+    }
+    
+    //		DESIGNATOR
     
     public void visit(DesignatorIdent DesignatorIdent) { 
     	Obj newDesignator = SymbolTable.find(DesignatorIdent.getDesignatorName());
@@ -189,7 +303,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     		report_error("Simbol nije pravilno deklarisan.", DesignatorIdent);
     		return;
     	}
-    	//potencijalno neko povezivanje sa obj
+    	DesignatorIdent.obj = newDesignator;
     }
     
     public void visit(DesignatorIdentExpr DesignatorIdentExpr) { 
@@ -202,67 +316,146 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     		report_error("Simbol nije pravilno deklarisan.", DesignatorIdentExpr);
     		return;
     	}
-    	//potencijalno neko povezivanje sa obj + provera expr
+    	if(!DesignatorIdentExpr.getExpr().struct.equals(SymbolTable.intType)) {
+    		report_error("Izraz u [ ] mora biti tipa int.", DesignatorIdentExpr);
+    		return;
+    	}
+    	DesignatorIdentExpr.obj = newDesignator;
     }
+    
+    //		FACTOR
     
     public void visit(FactorConst FactorConst) { 
     	FactorConst.struct = FactorConst.getConstType().struct;
     }
-	/*
-	 * ALL METHODS 
-	public void visit(Designator Designator) { }
-    public void visit(MethodDecl MethodDecl) { }
-    public void visit(Factor Factor) { }
-    public void visit(DesignatorStatement DesignatorStatement) { }    
-    public void visit(Declaration Declaration) { }
-    public void visit(Expr Expr) { }
-    public void visit(DeclList DeclList) { }
-    public void visit(Statement Statement) { }
-    public void visit(VarDeclArray VarDeclArray) { }
-    public void visit(Term Term) { }
-    public void visit(ActPars ActPars) { }
-    public void visit(StatementList StatementList) { }
-    public void visit(FactorDesignatorCallFuncNoPars FactorDesignatorCallFuncNoPars) { visit(); }
-    public void visit(FactorDesignatorCallFunc FactorDesignatorCallFunc) { visit(); }
-    public void visit(FactorDesignator FactorDesignator) { visit(); }
-    public void visit(FactorExpr FactorExpr) { visit(); }
-    public void visit(FactorNewExprArray FactorNewExprArray) { visit(); }
     
-    public void visit(SingleActPar SingleActPar) { visit(); }
-    public void visit(MultipleActPars MultipleActPars) { visit(); }
-    public void visit(SignleTerm SignleTerm) { visit(); }
-    public void visit(MultipleTerm MultipleTerm) { visit(); }
-    public void visit(ExprAddop ExprAddop) { visit(); }
-    public void visit(ExprNegative ExprNegative) { visit(); }
-    public void visit(ExprPositive ExprPositive) { visit(); }
-    public void visit(DesignatorIdentExpr DesignatorIdentExpr) { visit(); }
+    public void visit(FactorDesignatorCallFuncNoPars FactorDesignatorCallFuncNoPars) {
+    	if(!(FactorDesignatorCallFuncNoPars.getDesignator().obj.getKind() ==Obj.Meth)) {
+    		report_error("Simbol nije deklarisan kao metoda.", FactorDesignatorCallFuncNoPars);
+    		return;
+    	}
+    	
+    	FactorDesignatorCallFuncNoPars.struct = FactorDesignatorCallFuncNoPars.getDesignator().obj.getType();
+    }
     
-    public void visit(DesignatorNoActPars DesignatorNoActPars) { visit(); }
-    public void visit(DesignatorActPars DesignatorActPars) { visit(); }
-    public void visit(DesignatorDecrement DesignatorDecrement) { visit(); }
-    public void visit(DesignatorIncrement DesignatorIncrement) { visit(); }
-    public void visit(DesignatorUnion DesignatorUnion) { visit(); }
-    public void visit(DesignatorEqualExpr DesignatorEqualExpr) { visit(); }
-    public void visit(StatementReturnSomething StatementReturnSomething) { visit(); }
-    public void visit(StatementReturnEmpty StatementReturnEmpty) { visit(); }
-    public void visit(StatementPrintMultiple StatementPrintMultiple) { visit(); }
-    public void visit(StatementPrint StatementPrint) { visit(); }
-    public void visit(StatementRead StatementRead) { visit(); }
-    public void visit(StatementDesignator StatementDesignator) { visit(); }
-    public void visit(StatementListMultiple StatementListMultiple) { visit(); }
-    public void visit(MethodDeclaration MethodDeclaration) { visit(); }
-    public void visit(MethVoid MethVoid) { visit(); }
-    public void visit(MethType MethType) { visit(); }
-    public void visit(MethodDeclarationListMultiple MethodDeclarationListMultiple) { visit(); }
-    public void visit(DeclarationVariable DeclarationVariable) { visit(); }
-    public void visit(DeclarationConstant DeclarationConstant) { visit(); }
-    public void visit(DeclarationList DeclarationList) { visit(); }
+    public void visit(FactorDesignatorCallFunc FactorDesignatorCallFunc) { 
+    	if(!(FactorDesignatorCallFunc.getDesignator().obj.getKind() ==Obj.Meth)) {
+    		report_error("Simbol nije deklarisan kao metoda.", FactorDesignatorCallFunc);
+    		return;
+    	}
+    	
+    	FactorDesignatorCallFunc.struct = FactorDesignatorCallFunc.getDesignator().obj.getType();
+    }
     
-    	MOZDA NE TREBA
-   	public void visit(FormPar FormPar) { visit(); }
-    public void visit(FormParsListSignle FormParsListSignle) { visit(); }
-    public void visit(FormParsListMultiple FormParsListMultiple) { visit(); }
-	public void visit(FormParArray FormParArray) { visit(); }
-	 */
+    public void visit(FactorNewExprArray FactorNewExprArray) { 
+    	if(!FactorNewExprArray.getExpr().struct.equals(SymbolTable.intType)) {
+    		report_error("Izraz u [ ] zagradama mora biti tipa int.", FactorNewExprArray);
+    		return;
+    	}
+    	String setOrArray = FactorNewExprArray.getType().getTypeName();
+    	if(setOrArray.equals("set")) {
+    		FactorNewExprArray.struct = new Struct(Struct.Enum);
+    	}
+    	FactorNewExprArray.struct = new Struct(Struct.Array, FactorNewExprArray.getType().struct);
+    }
+    
+    public void visit(FactorExpr FactorExpr) { 
+    	FactorExpr.struct = FactorExpr.getExpr().struct;
+    }
+    
+    public void visit(FactorDesignator FactorDesignator) { 
+    	FactorDesignator.struct = FactorDesignator.getDesignator().obj.getType();
+    }
+	
+    //		TERM
+    
+    public void visit(SignleTerm SignleTerm) { 
+    	SignleTerm.struct = SignleTerm.getFactor().struct;
+    }
+    public void visit(MultipleTerm MultipleTerm) { 
+    	if(!(MultipleTerm.getTerm().struct.equals(SymbolTable.intType)) || 
+    			!(MultipleTerm.getFactor().struct.equals(SymbolTable.intType))) {
+    		report_error("Potrebno je da obe strane u izrazu budu tipa int", MultipleTerm);
+    		return;
+    	}
+    	
+    	MultipleTerm.struct = SymbolTable.intType;
+    }
+    
+    //		EXPR
+    
+    public void visit(ExprAddop ExprAddop) { 
+    	if(!(ExprAddop.getExpr().struct.equals(SymbolTable.intType)) ||
+    			!(ExprAddop.getTerm().struct.equals(SymbolTable.intType))){
+    		report_error("Potrebno je da obe strane u izrazu budu tipa int", ExprAddop);
+    		return;
+    	}
+    	
+    	ExprAddop.struct = SymbolTable.intType;
+    }
+    
+    public void visit(ExprNegative ExprNegative) { 
+    	if(!ExprNegative.getTerm().struct.equals(SymbolTable.intType)) {
+    		report_error("Izraz mora biti tipa int.", ExprNegative);
+    	}
+    	
+    	ExprNegative.struct = SymbolTable.intType;
+    }
+    
+    public void visit(ExprPositive ExprPositive) { 
+    	ExprPositive.struct = ExprPositive.getTerm().struct;
+    }
+    
+    // 		DESIGNATOR STATEMENT
+    
+    public void visit(DesignatorNoActPars DesignatorNoActPars) { 
+    	if(!(DesignatorNoActPars.getDesignator().obj.getKind() == Obj.Meth)) {
+    		report_error("Simbol nije deklarisan kao metoda.", DesignatorNoActPars);
+    		return;
+    	}
+    }
+    
+    public void visit(DesignatorActPars DesignatorActPars) {
+    	if(!(DesignatorActPars.getDesignator().obj.getKind() == Obj.Meth)) {
+    		report_error("Simbol nije deklarisan kao metoda.", DesignatorActPars);
+    		return;
+    	}
+    }
+
+    public void visit(DesignatorDecrement DesignatorDecrement) { 
+    	if(!DesignatorDecrement.getDesignator().obj.getType().equals(SymbolTable.intType)) {
+    		report_error("Podatak mora biti tipa int da bi se radila operacija ++/--.", DesignatorDecrement);
+    		return;
+    	}
+    	if(!(DesignatorDecrement.getDesignator().obj.getKind() == Obj.Var)) {
+    		report_error("Podatak mora biti promenljiva ili clan niza.", DesignatorDecrement);
+    		return;
+    	}
+    }
+    
+    public void visit(DesignatorIncrement DesignatorIncrement) { 
+    	if(!DesignatorIncrement.getDesignator().obj.getType().equals(SymbolTable.intType)) {
+    		report_error("Podatak mora biti tipa int da bi se radila operacija ++/--.", DesignatorIncrement);
+    		return;
+    	}
+    	if(!(DesignatorIncrement.getDesignator().obj.getKind() == Obj.Var)) {
+    		report_error("Podatak mora biti promenljiva ili clan niza.", DesignatorIncrement);
+    		return;
+    	}
+    }
+    
+    public void visit(DesignatorUnion DesignatorUnion) { 
+    	if(!DesignatorUnion.getDesignator1().obj.getType().equals(new Struct(Struct.Enum)) || 
+    			!DesignatorUnion.getDesignator2().obj.getType().equals(new Struct(Struct.Enum))){
+    		report_error("Unija se moze koristiti samo nad podacima tipa skup (set).", DesignatorUnion);
+    		return;
+    	}
+    }
+    
+    public void visit(DesignatorEqualExpr DesignatorEqualExpr) { 
+    	if(DesignatorEqualExpr.getDesignator().obj.getType() != DesignatorEqualExpr.getExpr().struct) {
+    		report_error("Tip deklarisane promenljive se mora poklapati sa tipom podatka.", DesignatorEqualExpr);
+    	}
+    }
 
 }
