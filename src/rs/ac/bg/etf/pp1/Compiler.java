@@ -27,6 +27,7 @@ public class Compiler {
 
 		//File sourceCodeFile = new File(args[0]);
 		File sourceCodeFile = new File("./test/test301.mj");
+		//File sourceCodeFile = new File("./test/program.mj");
 		if (!sourceCodeFile.exists()) {
 			logger.error("Source file " + sourceCodeFile.getAbsolutePath() + " not found!");
 			return;
