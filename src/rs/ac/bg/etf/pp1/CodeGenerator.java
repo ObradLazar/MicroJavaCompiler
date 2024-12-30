@@ -26,7 +26,8 @@ public class CodeGenerator extends VisitorAdaptor {
 		if ("main".equalsIgnoreCase(methodName.getMetodName())) {
 			mainPc = Code.pc;
 		}
-		methodName.obj.setAdr(Code.pc);
+		//	pamti se adresa metode
+		currentMethod.setAdr(Code.pc);
 		numberOfFormalParamsInMethod = currentMethod.getLevel();
 		numberOfVariablesInMethod = currentMethod.getLocalSymbols().size();
 
@@ -41,15 +42,39 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.exit);
 		Code.put(Code.return_);
 	}
-
-	//	DESIGNATOR
 	
-	public void visit(DesignatorIdent designatorIdent) {}
+	// 	DESIGNATOR
 	
-	public void visit(DesignatorIdentExpr designatorIdentExpr) {}
+	public void visit(DesignatorIdentExpr DesignatorIdentExpr) {
+		Obj designatorArray = DesignatorIdentExpr.obj;
+		
+		Code.load(designatorArray);
+		Code.put(Code.dup_x1);
+		Code.put(Code.pop);
+	}
 	
 	//	FACTOR
 
+	public void visit(FactorDesignator FactorDesignator) {
+		Code.load(FactorDesignator.getDesignator().obj);
+	}
+	
+	// 	Ovo se ne radi zato sto rezultat ostaje na exprStack implicitno
+	//public void visit(FactorExpr FactorExpr) {}
+	
+	public void visit(FactorNewExprArray FactorNewExprArray) {
+		// val == 0 (char) val != 0 (int, bool) + set
+		Code.put(Code.newarray);
+		if(FactorNewExprArray.getType().struct.equals(SymbolTable.setType)) {
+			//	nije bitno koji broj se stavi!
+			Code.put(2);
+		} else if (FactorNewExprArray.getType().struct.equals(SymbolTable.charType)) {
+			Code.put(0);
+		} else {
+			Code.put(1);
+		}
+	}
+	
 	public void visit(FactorDesignatorCallFunc designatorCallFunc) {
 		Obj factorFuncCall = designatorCallFunc.getDesignator().obj;
 		int offset = factorFuncCall.getAdr() - Code.pc;
@@ -117,24 +142,26 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	public void visit(DesignatorActPars designatorActPars) {
 		Obj methodWithArgs = designatorActPars.getDesignator().obj;
+		
 		int offset = methodWithArgs.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(offset);
 
 		// u koliko ima povratnu vrednost
-		if (methodWithArgs.getType().equals(SymbolTable.noType)) {
+		if (!methodWithArgs.getType().equals(SymbolTable.noType)) {
 			Code.put(Code.pop);
 		}
 	}
 	
 	public void visit(DesignatorNoActPars designatorNoActPars) {
 		Obj methodWithArgs = designatorNoActPars.getDesignator().obj;
+		
 		int offset = methodWithArgs.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(offset);
 
 		// u koliko ima povratnu vrednost
-		if (methodWithArgs.getType().equals(SymbolTable.noType)) {
+		if (!methodWithArgs.getType().equals(SymbolTable.noType)) {
 			Code.put(Code.pop);
 		}
 	}
@@ -142,7 +169,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	public void visit(DesignatorIncrement designatorIncrement) {
 		Obj designatorToIncrement = designatorIncrement.getDesignator().obj;
 		
-		//ako je niz
+		//	ako je niz
 		if(designatorToIncrement.getKind() == Obj.Elem) {
 			Code.put(Code.dup2);
 		}
@@ -150,8 +177,23 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.load(designatorToIncrement);
 		Code.loadConst(1);
 		Code.put(Code.add);
-		Code.store(designatorToIncrement);
 		
+		Code.store(designatorToIncrement);	
+	}
+	
+	public void visit(DesignatorDecrement DesignatorDecrement) {
+		Obj designatorToDecrement = DesignatorDecrement.getDesignator().obj;
+		
+		//	ako je niz
+		if(designatorToDecrement.getKind() == Obj.Elem) {
+			Code.put(Code.dup2);
+		}
+				
+		Code.load(designatorToDecrement);
+		Code.loadConst(1);
+		Code.put(Code.sub);
+		
+		Code.store(designatorToDecrement);
 	}
 
 	// STATEMENT
@@ -179,29 +221,39 @@ public class CodeGenerator extends VisitorAdaptor {
 				|| typeOfExprToPrint.equals(SymbolTable.booleanType)) {
 			Code.loadConst(intAndBoolWidth);
 			Code.put(Code.print);
+		}else if(typeOfExprToPrint.equals(SymbolTable.setType)) {
+			// ispisati set broj po broj odvojen blanko znakovima
+			
 		}
 		
 	}
 	
 	public void visit(StatementPrintMultiple statementPrintMultiple) {
 		int constArg = statementPrintMultiple.getC2();
-		Code.loadConst(constArg);
 		
+		Code.loadConst(constArg);
 		Struct typeOfDesignator = statementPrintMultiple.getExpr().struct;
+		
 		if(typeOfDesignator.equals(SymbolTable.charType)) {
 			Code.put(Code.bprint);
-		}else {
+		}else if(typeOfDesignator.equals(SymbolTable.intType) 
+				|| typeOfDesignator.equals(SymbolTable.booleanType)) {
 			Code.put(Code.print);
+		}else if(typeOfDesignator.equals(SymbolTable.setType)) {
+			// ispisati set broj po broj odvojen blanko znakovima
+			
 		}
 	}
 	
 	public void visit(StatementRead statementRead) {
 		Struct designatorType = statementRead.getDesignator().obj.getType();
+		
 		if(designatorType.equals(SymbolTable.charType)) {
 			Code.put(Code.bread);
 		}else{
 			Code.put(Code.read);
 		}
+		
 		Code.store(statementRead.getDesignator().obj);
 	}
 	
