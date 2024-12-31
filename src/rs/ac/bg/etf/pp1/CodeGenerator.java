@@ -17,6 +17,134 @@ public class CodeGenerator extends VisitorAdaptor {
 		return mainPc;
 	}
 
+	// PROGRAM
+	
+	public void visit(ProgramName programName) {
+		
+		// ORD (char c)
+		Obj ordObj = SymbolTable.find("ord");
+		int argumentsOrd = ordObj.getLevel();
+		int variablesOrd = ordObj.getLocalSymbols().size();
+		int addressOrd = Code.pc;
+		ordObj.setAdr(addressOrd);
+		
+		Code.put(Code.enter);
+		Code.put(argumentsOrd);
+		Code.put(argumentsOrd + variablesOrd);
+		
+		Code.put(Code.load_n);
+		
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		// CHR (int i)
+		Obj chrObj = SymbolTable.find("chr");
+		int argumentsChr = chrObj.getLevel();
+		int variablesChr = chrObj.getLocalSymbols().size();
+		int addressChr = Code.pc;
+		chrObj.setAdr(addressChr);
+		
+		Code.put(Code.enter);
+		Code.put(argumentsChr);
+		Code.put(argumentsChr + variablesChr);
+		
+		Code.put(Code.load_n);
+		
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		// LEN (array arr)
+		Obj lenObj = SymbolTable.find("len");
+		int argumentsLen = lenObj.getLevel();
+		int variablesLen = lenObj.getLocalSymbols().size();
+		int addresLen = Code.pc;
+		chrObj.setAdr(addresLen);
+		
+		Code.put(Code.enter);
+		Code.put(argumentsLen);
+		Code.put(argumentsLen + variablesLen);
+		
+		Code.put(Code.load_n);
+		Code.put(Code.arraylength);
+		
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		// ADD (set a, int b)
+		Obj addObj = SymbolTable.find("add");
+		int argumentsAdd = addObj.getLevel();
+		int variablesAdd = addObj.getLocalSymbols().size();
+		int addressAdd = Code.pc;
+		addObj.setAdr(addressAdd);
+		
+		Code.put(Code.enter);
+		Code.put(argumentsAdd);
+		Code.put(argumentsAdd + variablesAdd);
+		
+			// dohvati velicinu niza u store_2
+		Code.put(Code.load_n);
+		Code.put(Code.arraylength);
+		Code.put(Code.store_2);		// u arrayLen => store_2
+		
+		int addressGetNextIndex = Code.pc;
+		
+		Code.put(Code.load_3);		//ucitaj counter
+		Code.put(Code.load_2);		//ucitaj arrayLen
+		
+		Code.putFalseJump(Code.lt, 0); 			//if(counter == arrayLen) => nismo nasli isti
+		int addressCheckCounter = Code.pc - 2;
+		
+			// dohvati array[counter]
+		Code.put(Code.load_n);
+		Code.put(Code.load_3);
+		Code.put(Code.aload);	//znamo da je int
+		
+		Code.put(Code.load_1);
+		
+		Code.putFalseJump(Code.ne, 0);	//if(array[counter] != value), skacemo ako uslov nije ispunjen
+		int addressCheckValue = Code.pc - 2;
+		
+			// u koliko nije isto counter++
+		Code.put(Code.load_3);
+		Code.loadConst(1);
+		Code.put(Code.add);
+		Code.put(Code.store_3);
+		
+			//ako si proverio sve skoci na pocetak petlje
+		Code.putJump(addressGetNextIndex);
+		
+			// postoji takav element
+		Code.fixup(addressCheckValue);
+		Code.put(Code.load_n);	//samo vrati isti set
+		Code.loadConst(1);
+		Code.loadConst(1);
+		Code.putFalseJump(Code.ne, 0);
+		int addressJumpToEnd = Code.pc - 2;
+		
+			// ne postoji takav element
+		Code.fixup(addressCheckCounter);
+		Code.put(Code.load_n);	//samo vrati isti set
+		
+			// kreiraj novi set sa tim elementima
+		Code.put(Code.load_2);
+		Code.loadConst(1);
+		Code.put(Code.add);
+		Code.put(Code.store_2);		// new arrayLen
+		
+		
+		
+			// povratak		
+		Code.fixup(addressJumpToEnd);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		// ADDALL
+		int addressAddAll = Code.pc;
+		
+		
+		
+	}
+	
 	// METHOD
 
 	public void visit(MethodName methodName) {
