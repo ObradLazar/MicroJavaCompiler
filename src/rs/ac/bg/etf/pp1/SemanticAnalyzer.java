@@ -3,7 +3,7 @@ package rs.ac.bg.etf.pp1;
 import org.apache.log4j.*;
 
 import rs.ac.bg.etf.pp1.ast.*;
-
+import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.*;
 import rs.etf.pp1.symboltable.concepts.*;
 
@@ -315,7 +315,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(DesignatorIdentExpr DesignatorIdentExpr) {
-		Obj newDesignator = SymbolTable.find(DesignatorIdentExpr.getDesignatorName());
+		String designatorName = DesignatorIdentExpr.getDesignatorArrayName().getDesignatorName();
+		
+		Obj newDesignator = SymbolTable.find(designatorName);
 		if (newDesignator.equals(SymbolTable.noObj)) {
 			report_error("Simbol sa ovim imenom ne postoji.", DesignatorIdentExpr);
 			return;
@@ -329,12 +331,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		Obj arrayObject = new Obj(Obj.Elem, DesignatorIdentExpr.getDesignatorName(),
+		Obj arrayObject = new Obj(Obj.Elem, designatorName,
 				newDesignator.getType().getElemType());
 		arrayObject.setLevel(newDesignator.getLevel());
 		DesignatorIdentExpr.obj = arrayObject;
 	}
-
+	
+	public void visit(DesignatorArrayName designatorArrayName) {
+		String designatorName = designatorArrayName.getDesignatorName();
+		
+		Obj newDesignator = SymbolTable.find(designatorName);
+		
+		designatorArrayName.obj = newDesignator;
+	}
+	
 	// FACTOR
 
 	public void visit(FactorConst FactorConst) {

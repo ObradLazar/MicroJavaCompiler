@@ -1,0 +1,611 @@
+INFO  01:16:22,927 - ==========================================================================================
+INFO  01:16:22,928 - Compiling source file C:\Users\LENOVO\Desktop\Njihov projekat\pp1lab.templateAST\pp1lab.templateAST\workspace\MJCompiler\.\test\set.mj
+INFO  01:16:22,928 - ==========================================================================================
+INFO  01:16:22,937 - Parsing source file
+INFO  01:16:22,937 - ==========================================================================================
+INFO  01:16:22,988 - #2 program
+INFO  01:16:22,989 - #29 test301
+INFO  01:16:22,989 - #29 set
+INFO  01:16:22,993 - #29 s1
+INFO  01:16:22,995 - #10 ,
+INFO  01:16:22,995 - #29 s2
+INFO  01:16:22,996 - #10 ,
+INFO  01:16:23,015 - #29 s3
+INFO  01:16:23,015 - #9 ;
+INFO  01:16:23,016 - #20 {
+INFO  01:16:23,018 - #3 void
+INFO  01:16:23,020 - #29 main
+INFO  01:16:23,021 - #24 (
+INFO  01:16:23,023 - #25 )
+INFO  01:16:23,025 - #29 int
+INFO  01:16:23,026 - #29 bodovi
+INFO  01:16:23,026 - #9 ;
+INFO  01:16:23,027 - #29 int
+INFO  01:16:23,027 - #29 temp
+INFO  01:16:23,027 - #9 ;
+INFO  01:16:23,027 - #20 {
+INFO  01:16:23,028 - #29 s1
+INFO  01:16:23,029 - #12 =
+INFO  01:16:23,029 - #6 new
+INFO  01:16:23,030 - #29 set
+INFO  01:16:23,030 - #22 [
+INFO  01:16:23,030 - #26 5
+INFO  01:16:23,030 - #23 ]
+INFO  01:16:23,030 - #9 ;
+INFO  01:16:23,031 - #29 s2
+INFO  01:16:23,031 - #12 =
+INFO  01:16:23,031 - #6 new
+INFO  01:16:23,031 - #29 set
+INFO  01:16:23,031 - #22 [
+INFO  01:16:23,032 - #26 5
+INFO  01:16:23,032 - #23 ]
+INFO  01:16:23,032 - #9 ;
+INFO  01:16:23,032 - #29 s3
+INFO  01:16:23,032 - #12 =
+INFO  01:16:23,032 - #6 new
+INFO  01:16:23,032 - #29 set
+INFO  01:16:23,032 - #22 [
+INFO  01:16:23,033 - #26 10
+INFO  01:16:23,033 - #23 ]
+INFO  01:16:23,033 - #9 ;
+INFO  01:16:23,033 - #29 add
+INFO  01:16:23,033 - #24 (
+INFO  01:16:23,033 - #29 s1
+INFO  01:16:23,033 - #10 ,
+INFO  01:16:23,034 - #26 7
+INFO  01:16:23,034 - #25 )
+INFO  01:16:23,035 - #9 ;
+INFO  01:16:23,035 - #29 add
+INFO  01:16:23,036 - #24 (
+INFO  01:16:23,036 - #29 s1
+INFO  01:16:23,036 - #10 ,
+INFO  01:16:23,036 - #26 1
+INFO  01:16:23,036 - #25 )
+INFO  01:16:23,037 - #9 ;
+INFO  01:16:23,037 - #29 add
+INFO  01:16:23,037 - #24 (
+INFO  01:16:23,037 - #29 s1
+INFO  01:16:23,037 - #10 ,
+INFO  01:16:23,038 - #26 2
+INFO  01:16:23,038 - #25 )
+INFO  01:16:23,038 - #9 ;
+INFO  01:16:23,038 - #29 add
+INFO  01:16:23,038 - #24 (
+INFO  01:16:23,038 - #29 s2
+INFO  01:16:23,039 - #10 ,
+INFO  01:16:23,039 - #26 2
+INFO  01:16:23,039 - #25 )
+INFO  01:16:23,039 - #9 ;
+INFO  01:16:23,039 - #29 add
+INFO  01:16:23,040 - #24 (
+INFO  01:16:23,040 - #29 s2
+INFO  01:16:23,040 - #10 ,
+INFO  01:16:23,040 - #26 3
+INFO  01:16:23,040 - #25 )
+INFO  01:16:23,041 - #9 ;
+INFO  01:16:23,041 - #29 add
+INFO  01:16:23,041 - #24 (
+INFO  01:16:23,041 - #29 s2
+INFO  01:16:23,042 - #10 ,
+INFO  01:16:23,042 - #26 8
+INFO  01:16:23,042 - #25 )
+INFO  01:16:23,042 - #9 ;
+INFO  01:16:23,042 - #4 print
+INFO  01:16:23,042 - #24 (
+INFO  01:16:23,043 - #29 eol
+INFO  01:16:23,043 - #25 )
+INFO  01:16:23,043 - #9 ;
+INFO  01:16:23,043 - #29 s3
+INFO  01:16:23,043 - #12 =
+INFO  01:16:23,043 - #29 s1
+INFO  01:16:23,043 - #11 union
+INFO  01:16:23,044 - #29 s2
+INFO  01:16:23,046 - #9 ;
+INFO  01:16:23,048 - #4 print
+INFO  01:16:23,048 - #24 (
+INFO  01:16:23,048 - #29 eol
+INFO  01:16:23,048 - #25 )
+INFO  01:16:23,048 - #9 ;
+INFO  01:16:23,048 - #4 print
+INFO  01:16:23,048 - #24 (
+INFO  01:16:23,049 - #29 s1
+INFO  01:16:23,049 - #25 )
+INFO  01:16:23,049 - #9 ;
+INFO  01:16:23,049 - #4 print
+INFO  01:16:23,049 - #24 (
+INFO  01:16:23,049 - #29 eol
+INFO  01:16:23,049 - #25 )
+INFO  01:16:23,050 - #9 ;
+INFO  01:16:23,050 - #4 print
+INFO  01:16:23,050 - #24 (
+INFO  01:16:23,050 - #29 s2
+INFO  01:16:23,050 - #25 )
+INFO  01:16:23,050 - #9 ;
+INFO  01:16:23,050 - #4 print
+INFO  01:16:23,050 - #24 (
+INFO  01:16:23,050 - #29 eol
+INFO  01:16:23,051 - #25 )
+INFO  01:16:23,051 - #9 ;
+INFO  01:16:23,051 - #4 print
+INFO  01:16:23,051 - #24 (
+INFO  01:16:23,051 - #29 s3
+INFO  01:16:23,052 - #25 )
+INFO  01:16:23,052 - #9 ;
+INFO  01:16:23,052 - #4 print
+INFO  01:16:23,052 - #24 (
+INFO  01:16:23,052 - #29 eol
+INFO  01:16:23,052 - #25 )
+INFO  01:16:23,052 - #9 ;
+INFO  01:16:23,053 - #21 }
+INFO  01:16:23,053 - #21 }
+INFO  01:16:23,056 - ==========================================================================================
+INFO  01:16:23,056 - Parsing successful
+INFO  01:16:23,056 - ==========================================================================================
+INFO  01:16:23,059 - Abstract syntax tree
+ Program(
+   ProgramName(
+    test301
+   ) [ProgramName]
+   DeclarationList(
+     NoDeclarationList(
+     ) [NoDeclarationList]
+     DeclarationVariable(
+       VarDecl(
+         Type(
+          set
+         ) [Type]
+         VarDeclListMultiple(
+           VarDeclListMultiple(
+             VarDeclListSingle(
+               VariableIdent(
+                s1
+               ) [VariableIdent]
+             ) [VarDeclListSingle]
+             VariableIdent(
+              s2
+             ) [VariableIdent]
+           ) [VarDeclListMultiple]
+           VariableIdent(
+            s3
+           ) [VariableIdent]
+         ) [VarDeclListMultiple]
+       ) [VarDecl]
+     ) [DeclarationVariable]
+   ) [DeclarationList]
+   MethodDeclarationListMultiple(
+     NoMethodDeclList(
+     ) [NoMethodDeclList]
+     MethodDeclaration(
+       MethVoid(
+       ) [MethVoid]
+       MethodName(
+        main
+       ) [MethodName]
+       NoFormPars(
+       ) [NoFormPars]
+       VarDeclarationArray(
+         VarDeclarationArray(
+           NoVarDeclarationArray(
+           ) [NoVarDeclarationArray]
+           VarDecl(
+             Type(
+              int
+             ) [Type]
+             VarDeclListSingle(
+               VariableIdent(
+                bodovi
+               ) [VariableIdent]
+             ) [VarDeclListSingle]
+           ) [VarDecl]
+         ) [VarDeclarationArray]
+         VarDecl(
+           Type(
+            int
+           ) [Type]
+           VarDeclListSingle(
+             VariableIdent(
+              temp
+             ) [VariableIdent]
+           ) [VarDeclListSingle]
+         ) [VarDecl]
+       ) [VarDeclarationArray]
+       StatementListMultiple(
+         StatementListMultiple(
+           StatementListMultiple(
+             StatementListMultiple(
+               StatementListMultiple(
+                 StatementListMultiple(
+                   StatementListMultiple(
+                     StatementListMultiple(
+                       StatementListMultiple(
+                         StatementListMultiple(
+                           StatementListMultiple(
+                             StatementListMultiple(
+                               StatementListMultiple(
+                                 StatementListMultiple(
+                                   StatementListMultiple(
+                                     StatementListMultiple(
+                                       StatementListMultiple(
+                                         StatementListMultiple(
+                                           NoStatementList(
+                                           ) [NoStatementList]
+                                           StatementDesignator(
+                                             DesignatorEqualExpr(
+                                               DesignatorIdent(
+                                                s1
+                                               ) [DesignatorIdent]
+                                               ExprPositive(
+                                                 SignleTerm(
+                                                   FactorNewExprArray(
+                                                     Type(
+                                                      set
+                                                     ) [Type]
+                                                     ExprPositive(
+                                                       SignleTerm(
+                                                         FactorConst(
+                                                           ConstTypeNumber(
+                                                            5
+                                                           ) [ConstTypeNumber]
+                                                         ) [FactorConst]
+                                                       ) [SignleTerm]
+                                                     ) [ExprPositive]
+                                                   ) [FactorNewExprArray]
+                                                 ) [SignleTerm]
+                                               ) [ExprPositive]
+                                             ) [DesignatorEqualExpr]
+                                           ) [StatementDesignator]
+                                         ) [StatementListMultiple]
+                                         StatementDesignator(
+                                           DesignatorEqualExpr(
+                                             DesignatorIdent(
+                                              s2
+                                             ) [DesignatorIdent]
+                                             ExprPositive(
+                                               SignleTerm(
+                                                 FactorNewExprArray(
+                                                   Type(
+                                                    set
+                                                   ) [Type]
+                                                   ExprPositive(
+                                                     SignleTerm(
+                                                       FactorConst(
+                                                         ConstTypeNumber(
+                                                          5
+                                                         ) [ConstTypeNumber]
+                                                       ) [FactorConst]
+                                                     ) [SignleTerm]
+                                                   ) [ExprPositive]
+                                                 ) [FactorNewExprArray]
+                                               ) [SignleTerm]
+                                             ) [ExprPositive]
+                                           ) [DesignatorEqualExpr]
+                                         ) [StatementDesignator]
+                                       ) [StatementListMultiple]
+                                       StatementDesignator(
+                                         DesignatorEqualExpr(
+                                           DesignatorIdent(
+                                            s3
+                                           ) [DesignatorIdent]
+                                           ExprPositive(
+                                             SignleTerm(
+                                               FactorNewExprArray(
+                                                 Type(
+                                                  set
+                                                 ) [Type]
+                                                 ExprPositive(
+                                                   SignleTerm(
+                                                     FactorConst(
+                                                       ConstTypeNumber(
+                                                        10
+                                                       ) [ConstTypeNumber]
+                                                     ) [FactorConst]
+                                                   ) [SignleTerm]
+                                                 ) [ExprPositive]
+                                               ) [FactorNewExprArray]
+                                             ) [SignleTerm]
+                                           ) [ExprPositive]
+                                         ) [DesignatorEqualExpr]
+                                       ) [StatementDesignator]
+                                     ) [StatementListMultiple]
+                                     StatementDesignator(
+                                       DesignatorActPars(
+                                         DesignatorIdent(
+                                          add
+                                         ) [DesignatorIdent]
+                                         MultipleActPars(
+                                           SingleActPar(
+                                             ExprPositive(
+                                               SignleTerm(
+                                                 FactorDesignator(
+                                                   DesignatorIdent(
+                                                    s1
+                                                   ) [DesignatorIdent]
+                                                 ) [FactorDesignator]
+                                               ) [SignleTerm]
+                                             ) [ExprPositive]
+                                           ) [SingleActPar]
+                                           ExprPositive(
+                                             SignleTerm(
+                                               FactorConst(
+                                                 ConstTypeNumber(
+                                                  7
+                                                 ) [ConstTypeNumber]
+                                               ) [FactorConst]
+                                             ) [SignleTerm]
+                                           ) [ExprPositive]
+                                         ) [MultipleActPars]
+                                       ) [DesignatorActPars]
+                                     ) [StatementDesignator]
+                                   ) [StatementListMultiple]
+                                   StatementDesignator(
+                                     DesignatorActPars(
+                                       DesignatorIdent(
+                                        add
+                                       ) [DesignatorIdent]
+                                       MultipleActPars(
+                                         SingleActPar(
+                                           ExprPositive(
+                                             SignleTerm(
+                                               FactorDesignator(
+                                                 DesignatorIdent(
+                                                  s1
+                                                 ) [DesignatorIdent]
+                                               ) [FactorDesignator]
+                                             ) [SignleTerm]
+                                           ) [ExprPositive]
+                                         ) [SingleActPar]
+                                         ExprPositive(
+                                           SignleTerm(
+                                             FactorConst(
+                                               ConstTypeNumber(
+                                                1
+                                               ) [ConstTypeNumber]
+                                             ) [FactorConst]
+                                           ) [SignleTerm]
+                                         ) [ExprPositive]
+                                       ) [MultipleActPars]
+                                     ) [DesignatorActPars]
+                                   ) [StatementDesignator]
+                                 ) [StatementListMultiple]
+                                 StatementDesignator(
+                                   DesignatorActPars(
+                                     DesignatorIdent(
+                                      add
+                                     ) [DesignatorIdent]
+                                     MultipleActPars(
+                                       SingleActPar(
+                                         ExprPositive(
+                                           SignleTerm(
+                                             FactorDesignator(
+                                               DesignatorIdent(
+                                                s1
+                                               ) [DesignatorIdent]
+                                             ) [FactorDesignator]
+                                           ) [SignleTerm]
+                                         ) [ExprPositive]
+                                       ) [SingleActPar]
+                                       ExprPositive(
+                                         SignleTerm(
+                                           FactorConst(
+                                             ConstTypeNumber(
+                                              2
+                                             ) [ConstTypeNumber]
+                                           ) [FactorConst]
+                                         ) [SignleTerm]
+                                       ) [ExprPositive]
+                                     ) [MultipleActPars]
+                                   ) [DesignatorActPars]
+                                 ) [StatementDesignator]
+                               ) [StatementListMultiple]
+                               StatementDesignator(
+                                 DesignatorActPars(
+                                   DesignatorIdent(
+                                    add
+                                   ) [DesignatorIdent]
+                                   MultipleActPars(
+                                     SingleActPar(
+                                       ExprPositive(
+                                         SignleTerm(
+                                           FactorDesignator(
+                                             DesignatorIdent(
+                                              s2
+                                             ) [DesignatorIdent]
+                                           ) [FactorDesignator]
+                                         ) [SignleTerm]
+                                       ) [ExprPositive]
+                                     ) [SingleActPar]
+                                     ExprPositive(
+                                       SignleTerm(
+                                         FactorConst(
+                                           ConstTypeNumber(
+                                            2
+                                           ) [ConstTypeNumber]
+                                         ) [FactorConst]
+                                       ) [SignleTerm]
+                                     ) [ExprPositive]
+                                   ) [MultipleActPars]
+                                 ) [DesignatorActPars]
+                               ) [StatementDesignator]
+                             ) [StatementListMultiple]
+                             StatementDesignator(
+                               DesignatorActPars(
+                                 DesignatorIdent(
+                                  add
+                                 ) [DesignatorIdent]
+                                 MultipleActPars(
+                                   SingleActPar(
+                                     ExprPositive(
+                                       SignleTerm(
+                                         FactorDesignator(
+                                           DesignatorIdent(
+                                            s2
+                                           ) [DesignatorIdent]
+                                         ) [FactorDesignator]
+                                       ) [SignleTerm]
+                                     ) [ExprPositive]
+                                   ) [SingleActPar]
+                                   ExprPositive(
+                                     SignleTerm(
+                                       FactorConst(
+                                         ConstTypeNumber(
+                                          3
+                                         ) [ConstTypeNumber]
+                                       ) [FactorConst]
+                                     ) [SignleTerm]
+                                   ) [ExprPositive]
+                                 ) [MultipleActPars]
+                               ) [DesignatorActPars]
+                             ) [StatementDesignator]
+                           ) [StatementListMultiple]
+                           StatementDesignator(
+                             DesignatorActPars(
+                               DesignatorIdent(
+                                add
+                               ) [DesignatorIdent]
+                               MultipleActPars(
+                                 SingleActPar(
+                                   ExprPositive(
+                                     SignleTerm(
+                                       FactorDesignator(
+                                         DesignatorIdent(
+                                          s2
+                                         ) [DesignatorIdent]
+                                       ) [FactorDesignator]
+                                     ) [SignleTerm]
+                                   ) [ExprPositive]
+                                 ) [SingleActPar]
+                                 ExprPositive(
+                                   SignleTerm(
+                                     FactorConst(
+                                       ConstTypeNumber(
+                                        8
+                                       ) [ConstTypeNumber]
+                                     ) [FactorConst]
+                                   ) [SignleTerm]
+                                 ) [ExprPositive]
+                               ) [MultipleActPars]
+                             ) [DesignatorActPars]
+                           ) [StatementDesignator]
+                         ) [StatementListMultiple]
+                         StatementPrint(
+                           ExprPositive(
+                             SignleTerm(
+                               FactorDesignator(
+                                 DesignatorIdent(
+                                  eol
+                                 ) [DesignatorIdent]
+                               ) [FactorDesignator]
+                             ) [SignleTerm]
+                           ) [ExprPositive]
+                         ) [StatementPrint]
+                       ) [StatementListMultiple]
+                       StatementDesignator(
+                         DesignatorUnion(
+                           DesignatorIdent(
+                            s3
+                           ) [DesignatorIdent]
+                           DesignatorIdent(
+                            s1
+                           ) [DesignatorIdent]
+                           Union(
+                           ) [Union]
+                           DesignatorIdent(
+                            s2
+                           ) [DesignatorIdent]
+                         ) [DesignatorUnion]
+                       ) [StatementDesignator]
+                     ) [StatementListMultiple]
+                     StatementPrint(
+                       ExprPositive(
+                         SignleTerm(
+                           FactorDesignator(
+                             DesignatorIdent(
+                              eol
+                             ) [DesignatorIdent]
+                           ) [FactorDesignator]
+                         ) [SignleTerm]
+                       ) [ExprPositive]
+                     ) [StatementPrint]
+                   ) [StatementListMultiple]
+                   StatementPrint(
+                     ExprPositive(
+                       SignleTerm(
+                         FactorDesignator(
+                           DesignatorIdent(
+                            s1
+                           ) [DesignatorIdent]
+                         ) [FactorDesignator]
+                       ) [SignleTerm]
+                     ) [ExprPositive]
+                   ) [StatementPrint]
+                 ) [StatementListMultiple]
+                 StatementPrint(
+                   ExprPositive(
+                     SignleTerm(
+                       FactorDesignator(
+                         DesignatorIdent(
+                          eol
+                         ) [DesignatorIdent]
+                       ) [FactorDesignator]
+                     ) [SignleTerm]
+                   ) [ExprPositive]
+                 ) [StatementPrint]
+               ) [StatementListMultiple]
+               StatementPrint(
+                 ExprPositive(
+                   SignleTerm(
+                     FactorDesignator(
+                       DesignatorIdent(
+                        s2
+                       ) [DesignatorIdent]
+                     ) [FactorDesignator]
+                   ) [SignleTerm]
+                 ) [ExprPositive]
+               ) [StatementPrint]
+             ) [StatementListMultiple]
+             StatementPrint(
+               ExprPositive(
+                 SignleTerm(
+                   FactorDesignator(
+                     DesignatorIdent(
+                      eol
+                     ) [DesignatorIdent]
+                   ) [FactorDesignator]
+                 ) [SignleTerm]
+               ) [ExprPositive]
+             ) [StatementPrint]
+           ) [StatementListMultiple]
+           StatementPrint(
+             ExprPositive(
+               SignleTerm(
+                 FactorDesignator(
+                   DesignatorIdent(
+                    s3
+                   ) [DesignatorIdent]
+                 ) [FactorDesignator]
+               ) [SignleTerm]
+             ) [ExprPositive]
+           ) [StatementPrint]
+         ) [StatementListMultiple]
+         StatementPrint(
+           ExprPositive(
+             SignleTerm(
+               FactorDesignator(
+                 DesignatorIdent(
+                  eol
+                 ) [DesignatorIdent]
+               ) [FactorDesignator]
+             ) [SignleTerm]
+           ) [ExprPositive]
+         ) [StatementPrint]
+       ) [StatementListMultiple]
+     ) [MethodDeclaration]
+   ) [MethodDeclarationListMultiple]
+ ) [Program]
+INFO  01:16:23,061 - ==========================================================================================
+INFO  01:16:23,061 - Checking program semantics
+INFO  01:16:23,061 - ==========================================================================================
+INFO  01:16:23,078 - ==========================================================================================
+INFO  01:16:23,078 - Semantic check passed
+INFO  01:16:23,078 - ==========================================================================================
+INFO  01:16:23,084 - Parsiranje uspesno zavrseno!

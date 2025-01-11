@@ -12,6 +12,7 @@ import java_cup.runtime.Symbol;
 import rs.ac.bg.etf.pp1.ast.Program;
 import rs.ac.bg.etf.pp1.ast.SyntaxNode;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
+import rs.etf.pp1.mj.runtime.Code;
 
 public class Compiler {
 	
@@ -28,6 +29,7 @@ public class Compiler {
 		//File sourceCodeFile = new File(args[0]);
 		File sourceCodeFile = new File("./test/test301.mj");
 		//File sourceCodeFile = new File("./test/program.mj");
+		//File sourceCodeFile = new File("./test/set.mj");
 		if (!sourceCodeFile.exists()) {
 			logger.error("Source file " + sourceCodeFile.getAbsolutePath() + " not found!");
 			return;
@@ -91,17 +93,18 @@ public class Compiler {
 			File bytecodeFile = new File(args[1]);
 			if (bytecodeFile.exists())
 				bytecodeFile.delete();
-
+*/
+			File objFile = new File("test/program.obj");
+			if(objFile.exists()) objFile.delete();
+			
 			CodeGenerator codeGenerator = new CodeGenerator();
 			root.traverseBottomUp(codeGenerator);
-			Code.dataSize = semanticAnalyzer.numberOfGlobalVars;
+			Code.dataSize = semanticAnalyzer.numberOfGlobalVariables;
 			Code.mainPc = codeGenerator.mainPc;
-			Code.write(new FileOutputStream(bytecodeFile));
+			Code.write(new FileOutputStream(objFile));
+			logger.info("Parsiranje uspesno zavrseno!");
 
-			logger.info(delimiter);
-			logger.info("Bytecode written to " + bytecodeFile.getAbsolutePath());
-			logger.info(delimiter);
-*/
+
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}

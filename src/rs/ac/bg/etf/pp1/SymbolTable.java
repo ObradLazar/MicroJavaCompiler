@@ -14,7 +14,7 @@ public class SymbolTable extends Tab {
 		currentScope.addToLocals(new Obj(Obj.Type, "bool", booleanType));
 		currentScope.addToLocals(new Obj(Obj.Type, "set", setType));
 		
-		currentScope.addToLocals(addObj = new Obj(Obj.Meth, "add", setType , 0, 2));
+		currentScope.addToLocals(addObj = new Obj(Obj.Meth, "add", noType , 0, 2));
 		{
 			openScope();
 			currentScope.addToLocals(new Obj(Obj.Var, "skup", setType, 0, 1));
@@ -25,7 +25,7 @@ public class SymbolTable extends Tab {
 		
 		Struct nizIntova = new Struct(Struct.Array, intType);
 		
-		currentScope.addToLocals(addAllObj = new Obj(Obj.Meth, "addAll", setType, 0, 2));
+		currentScope.addToLocals(addAllObj = new Obj(Obj.Meth, "addAll", noType, 0, 2));
 		{
 			openScope();
 			currentScope.addToLocals(new Obj(Obj.Var, "skup", setType, 0, 1));

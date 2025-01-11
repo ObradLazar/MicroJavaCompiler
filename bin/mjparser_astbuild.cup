@@ -80,6 +80,7 @@ nonterminal FormParsExist FormParsExist;
 nonterminal StatementList StatementList;
 nonterminal Statement Statement;
 nonterminal DesignatorStatement DesignatorStatement;
+nonterminal DesignatorArrayName DesignatorArrayName;
 nonterminal ActPars ActPars;
 nonterminal Setop Setop;
 nonterminal Addop Addop;
@@ -197,8 +198,10 @@ DesignatorStatement ::=(DesignatorEqualExpr) Designator:D1 EQUAL Expr:E2 {: RESU
 
 Designator ::= (DesignatorIdent) IDENT:designatorName {: RESULT=new DesignatorIdent(designatorName); RESULT.setLine(designatorNameleft); :}
 			|
-			(DesignatorIdentExpr) IDENT:designatorName LBRACKET Expr:E1 RBRACKET {: RESULT=new DesignatorIdentExpr(designatorName, E1); RESULT.setLine(designatorNameleft); :}
+			(DesignatorIdentExpr) DesignatorArrayName:D1 LBRACKET Expr:E2 RBRACKET {: RESULT=new DesignatorIdentExpr(D1, E2); RESULT.setLine(D1left); :}
 			;
+
+DesignatorArrayName ::= (DesignatorArrayName) IDENT:designatorName {: RESULT=new DesignatorArrayName(designatorName); RESULT.setLine(designatorNameleft); :};
 
 Expr ::=(ExprPositive) Term:T1 {: RESULT=new ExprPositive(T1); RESULT.setLine(T1left); :}
 		|

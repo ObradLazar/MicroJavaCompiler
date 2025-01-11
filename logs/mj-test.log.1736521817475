@@ -1,0 +1,317 @@
+INFO  01:44:48,462 - ==========================================================================================
+INFO  01:44:48,463 - Compiling source file C:\Users\LENOVO\Desktop\Njihov projekat\pp1lab.templateAST\pp1lab.templateAST\workspace\MJCompiler\.\test\test301.mj
+INFO  01:44:48,463 - ==========================================================================================
+INFO  01:44:48,466 - Parsing source file
+INFO  01:44:48,467 - ==========================================================================================
+INFO  01:44:48,486 - #2 program
+INFO  01:44:48,486 - #29 test301
+INFO  01:44:48,486 - #7 const
+INFO  01:44:48,488 - #29 int
+INFO  01:44:48,488 - #29 nula
+INFO  01:44:48,488 - #12 =
+INFO  01:44:48,509 - #26 0
+INFO  01:44:48,509 - #9 ;
+INFO  01:44:48,510 - #7 const
+INFO  01:44:48,511 - #29 int
+INFO  01:44:48,511 - #29 jedan
+INFO  01:44:48,511 - #12 =
+INFO  01:44:48,511 - #26 1
+INFO  01:44:48,511 - #9 ;
+INFO  01:44:48,511 - #7 const
+INFO  01:44:48,511 - #29 int
+INFO  01:44:48,511 - #29 pet
+INFO  01:44:48,512 - #12 =
+INFO  01:44:48,512 - #26 5
+INFO  01:44:48,512 - #9 ;
+INFO  01:44:48,512 - #20 {
+INFO  01:44:48,512 - #3 void
+INFO  01:44:48,513 - #29 main
+INFO  01:44:48,513 - #24 (
+INFO  01:44:48,514 - #25 )
+INFO  01:44:48,514 - #29 int
+INFO  01:44:48,515 - #29 bodovi
+INFO  01:44:48,515 - #9 ;
+INFO  01:44:48,515 - #29 int
+INFO  01:44:48,516 - #29 temp
+INFO  01:44:48,516 - #9 ;
+INFO  01:44:48,516 - #20 {
+INFO  01:44:48,516 - #29 bodovi
+INFO  01:44:48,516 - #12 =
+INFO  01:44:48,516 - #26 0
+INFO  01:44:48,517 - #9 ;
+INFO  01:44:48,517 - #29 bodovi
+INFO  01:44:48,517 - #13 ++
+INFO  01:44:48,517 - #9 ;
+INFO  01:44:48,517 - #29 bodovi
+INFO  01:44:48,517 - #12 =
+INFO  01:44:48,517 - #29 bodovi
+INFO  01:44:48,517 - #16 +
+INFO  01:44:48,517 - #29 jedan
+INFO  01:44:48,518 - #9 ;
+INFO  01:44:48,519 - #29 bodovi
+INFO  01:44:48,519 - #12 =
+INFO  01:44:48,519 - #29 bodovi
+INFO  01:44:48,519 - #19 *
+INFO  01:44:48,519 - #29 pet
+INFO  01:44:48,520 - #9 ;
+INFO  01:44:48,520 - #29 bodovi
+INFO  01:44:48,520 - #14 --
+INFO  01:44:48,520 - #9 ;
+INFO  01:44:48,520 - #4 print
+INFO  01:44:48,520 - #24 (
+INFO  01:44:48,521 - #29 bodovi
+INFO  01:44:48,521 - #25 )
+INFO  01:44:48,521 - #9 ;
+INFO  01:44:48,521 - #4 print
+INFO  01:44:48,521 - #24 (
+INFO  01:44:48,521 - #29 eol
+INFO  01:44:48,521 - #25 )
+INFO  01:44:48,521 - #9 ;
+INFO  01:44:48,521 - #4 print
+INFO  01:44:48,521 - #24 (
+INFO  01:44:48,521 - #26 3
+INFO  01:44:48,521 - #25 )
+INFO  01:44:48,521 - #9 ;
+INFO  01:44:48,521 - #21 }
+INFO  01:44:48,522 - #21 }
+INFO  01:44:48,522 - ==========================================================================================
+INFO  01:44:48,522 - Parsing successful
+INFO  01:44:48,522 - ==========================================================================================
+INFO  01:44:48,523 - Abstract syntax tree
+ Program(
+   ProgramName(
+    test301
+   ) [ProgramName]
+   DeclarationList(
+     DeclarationList(
+       DeclarationList(
+         NoDeclarationList(
+         ) [NoDeclarationList]
+         DeclarationConstant(
+           ConstDecl(
+             Type(
+              int
+             ) [Type]
+             ConstDeclListSignle(
+               ConstDeclaration(
+                nula
+                 ConstTypeNumber(
+                  0
+                 ) [ConstTypeNumber]
+               ) [ConstDeclaration]
+             ) [ConstDeclListSignle]
+           ) [ConstDecl]
+         ) [DeclarationConstant]
+       ) [DeclarationList]
+       DeclarationConstant(
+         ConstDecl(
+           Type(
+            int
+           ) [Type]
+           ConstDeclListSignle(
+             ConstDeclaration(
+              jedan
+               ConstTypeNumber(
+                1
+               ) [ConstTypeNumber]
+             ) [ConstDeclaration]
+           ) [ConstDeclListSignle]
+         ) [ConstDecl]
+       ) [DeclarationConstant]
+     ) [DeclarationList]
+     DeclarationConstant(
+       ConstDecl(
+         Type(
+          int
+         ) [Type]
+         ConstDeclListSignle(
+           ConstDeclaration(
+            pet
+             ConstTypeNumber(
+              5
+             ) [ConstTypeNumber]
+           ) [ConstDeclaration]
+         ) [ConstDeclListSignle]
+       ) [ConstDecl]
+     ) [DeclarationConstant]
+   ) [DeclarationList]
+   MethodDeclarationListMultiple(
+     NoMethodDeclList(
+     ) [NoMethodDeclList]
+     MethodDeclaration(
+       MethVoid(
+       ) [MethVoid]
+       MethodName(
+        main
+       ) [MethodName]
+       NoFormPars(
+       ) [NoFormPars]
+       VarDeclarationArray(
+         VarDeclarationArray(
+           NoVarDeclarationArray(
+           ) [NoVarDeclarationArray]
+           VarDecl(
+             Type(
+              int
+             ) [Type]
+             VarDeclListSingle(
+               VariableIdent(
+                bodovi
+               ) [VariableIdent]
+             ) [VarDeclListSingle]
+           ) [VarDecl]
+         ) [VarDeclarationArray]
+         VarDecl(
+           Type(
+            int
+           ) [Type]
+           VarDeclListSingle(
+             VariableIdent(
+              temp
+             ) [VariableIdent]
+           ) [VarDeclListSingle]
+         ) [VarDecl]
+       ) [VarDeclarationArray]
+       StatementListMultiple(
+         StatementListMultiple(
+           StatementListMultiple(
+             StatementListMultiple(
+               StatementListMultiple(
+                 StatementListMultiple(
+                   StatementListMultiple(
+                     StatementListMultiple(
+                       NoStatementList(
+                       ) [NoStatementList]
+                       StatementDesignator(
+                         DesignatorEqualExpr(
+                           DesignatorIdent(
+                            bodovi
+                           ) [DesignatorIdent]
+                           ExprPositive(
+                             SignleTerm(
+                               FactorConst(
+                                 ConstTypeNumber(
+                                  0
+                                 ) [ConstTypeNumber]
+                               ) [FactorConst]
+                             ) [SignleTerm]
+                           ) [ExprPositive]
+                         ) [DesignatorEqualExpr]
+                       ) [StatementDesignator]
+                     ) [StatementListMultiple]
+                     StatementDesignator(
+                       DesignatorIncrement(
+                         DesignatorIdent(
+                          bodovi
+                         ) [DesignatorIdent]
+                       ) [DesignatorIncrement]
+                     ) [StatementDesignator]
+                   ) [StatementListMultiple]
+                   StatementDesignator(
+                     DesignatorEqualExpr(
+                       DesignatorIdent(
+                        bodovi
+                       ) [DesignatorIdent]
+                       ExprAddop(
+                         ExprPositive(
+                           SignleTerm(
+                             FactorDesignator(
+                               DesignatorIdent(
+                                bodovi
+                               ) [DesignatorIdent]
+                             ) [FactorDesignator]
+                           ) [SignleTerm]
+                         ) [ExprPositive]
+                         Plus(
+                         ) [Plus]
+                         SignleTerm(
+                           FactorDesignator(
+                             DesignatorIdent(
+                              jedan
+                             ) [DesignatorIdent]
+                           ) [FactorDesignator]
+                         ) [SignleTerm]
+                       ) [ExprAddop]
+                     ) [DesignatorEqualExpr]
+                   ) [StatementDesignator]
+                 ) [StatementListMultiple]
+                 StatementDesignator(
+                   DesignatorEqualExpr(
+                     DesignatorIdent(
+                      bodovi
+                     ) [DesignatorIdent]
+                     ExprPositive(
+                       MultipleTerm(
+                         SignleTerm(
+                           FactorDesignator(
+                             DesignatorIdent(
+                              bodovi
+                             ) [DesignatorIdent]
+                           ) [FactorDesignator]
+                         ) [SignleTerm]
+                         Mul(
+                         ) [Mul]
+                         FactorDesignator(
+                           DesignatorIdent(
+                            pet
+                           ) [DesignatorIdent]
+                         ) [FactorDesignator]
+                       ) [MultipleTerm]
+                     ) [ExprPositive]
+                   ) [DesignatorEqualExpr]
+                 ) [StatementDesignator]
+               ) [StatementListMultiple]
+               StatementDesignator(
+                 DesignatorDecrement(
+                   DesignatorIdent(
+                    bodovi
+                   ) [DesignatorIdent]
+                 ) [DesignatorDecrement]
+               ) [StatementDesignator]
+             ) [StatementListMultiple]
+             StatementPrint(
+               ExprPositive(
+                 SignleTerm(
+                   FactorDesignator(
+                     DesignatorIdent(
+                      bodovi
+                     ) [DesignatorIdent]
+                   ) [FactorDesignator]
+                 ) [SignleTerm]
+               ) [ExprPositive]
+             ) [StatementPrint]
+           ) [StatementListMultiple]
+           StatementPrint(
+             ExprPositive(
+               SignleTerm(
+                 FactorDesignator(
+                   DesignatorIdent(
+                    eol
+                   ) [DesignatorIdent]
+                 ) [FactorDesignator]
+               ) [SignleTerm]
+             ) [ExprPositive]
+           ) [StatementPrint]
+         ) [StatementListMultiple]
+         StatementPrint(
+           ExprPositive(
+             SignleTerm(
+               FactorConst(
+                 ConstTypeNumber(
+                  3
+                 ) [ConstTypeNumber]
+               ) [FactorConst]
+             ) [SignleTerm]
+           ) [ExprPositive]
+         ) [StatementPrint]
+       ) [StatementListMultiple]
+     ) [MethodDeclaration]
+   ) [MethodDeclarationListMultiple]
+ ) [Program]
+INFO  01:44:48,523 - ==========================================================================================
+INFO  01:44:48,523 - Checking program semantics
+INFO  01:44:48,523 - ==========================================================================================
+INFO  01:44:48,530 - ==========================================================================================
+INFO  01:44:48,530 - Semantic check passed
+INFO  01:44:48,530 - ==========================================================================================
+INFO  01:44:48,533 - Parsiranje uspesno zavrseno!

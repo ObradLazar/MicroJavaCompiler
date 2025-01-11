@@ -1,0 +1,75 @@
+// Test301
+
+program test301
+
+//const int nula = 0;
+//const int jedan = 1;
+//const int pet = 5;
+
+//int niz[];
+//char nizch[];
+
+//int a;
+
+set s1, s2, s3;
+	
+{
+
+
+	void main()	
+		int bodovi;
+		int temp;
+	{
+	
+//		niz = new int[3];
+//		niz[0] = 1; niz[1] = 2; niz[2] = 3;
+		s1 = new set[5];
+
+	    s2 = new set[5]; s3 = new set[10];
+		
+		add(s1, 7);
+		add(s1, 1);
+		add(s1, 2);
+		add(s1, 9);
+		
+		add(s2, 2);
+		add(s2, 3);
+		add(s2, 8);
+		add(s2, 6);
+		
+		print(eol);
+		s3 = s1 union s2;
+		print(eol);
+		
+		print(s1);
+		print(eol);
+
+		print(s2);
+		print(eol);
+
+		print(s3);
+		print(eol);
+
+//		addAll(s1, niz);
+//		add(s2, 3); add(s2, 4); add(s2, 5);
+//		s3 = s1 union s2;
+//		print(s3); //1 2 3 4 5
+//		print(eol);
+		
+//		niz[0] = 5; niz[1] = 5; niz[2] = 10;
+//		s1 = new set[5]; s2 = new set[5]; s3 = new set[10];
+		
+//		addAll(s2, niz);
+//		addAll(s2, niz);
+//		print(s2);
+
+//		read(temp); add(s2, temp);
+//		read(temp); add(s2, temp);
+//		read(temp); add(s2, temp);
+//		s3 = s1 union s2;
+//		print(s3); // 5 10 union {3 procitana broja}
+	
+	}
+}
+
+

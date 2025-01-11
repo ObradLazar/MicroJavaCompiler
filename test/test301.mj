@@ -6,9 +6,9 @@ const int nula = 0;
 const int jedan = 1;
 const int pet = 5;
 
-const bool kekinBool = true;
+//const bool kekinBool = true;
 
-const char kekinChar = 'k';
+//const char kekinChar = 'k';
 
 //const bool kekinNijeDobarTip = 3;
 
@@ -20,6 +20,7 @@ int a;
 set s1, s2, s3;
 	
 {
+
 
 	void main()	
 		int bodovi;
@@ -36,13 +37,13 @@ set s1, s2, s3;
 		print(eol);
 		
 		niz = new int[3];
-// 		niz[nula] = dva;
-		niz[jedan] = 3;
-		niz[niz[nula]] = niz[niz[1]] * 4;
-		bodovi = niz[2]/niz[0];
-		print(bodovi); //6
+		niz[nula] = 2;		//niz[nula] = dva;
+		niz[jedan] = 1;		//niz[jedan] = 3;
+		niz[niz[nula]] = niz[niz[1]] * 4;	// 4
+		bodovi = niz[2]/niz[0];		// 2
+		print(bodovi); //6			// 2
 		print(eol);
-		print(niz[2]); //12
+		print(niz[2]); //12			// 4
 		print(eol);
 		
 		nizch = new char[3];
@@ -54,7 +55,7 @@ set s1, s2, s3;
 		print(nizch[jedan * 2]); //c
 		print(eol);
 		print(ord(nizch[0])); //97	
-		print(nizch[0]);
+		print(nizch[0]);	//a
 			
 		a=1;
 		read(bodovi);
@@ -64,7 +65,12 @@ set s1, s2, s3;
 		niz[0] = 1; niz[1] = 2; niz[2] = 3;
 		s1 = new set[5]; s2 = new set[5]; s3 = new set[10];
 		addAll(s1, niz);
+		print(eol);
+		print(s1);
+		print(eol);
 		add(s2, 3); add(s2, 4); add(s2, 5);
+		print(s2);
+		print(eol);
 		s3 = s1 union s2;
 		print(s3); //1 2 3 4 5
 		print(eol);
@@ -73,8 +79,10 @@ set s1, s2, s3;
 		s1 = new set[5]; s2 = new set[5]; s3 = new set[10];
 		addAll(s1, niz);
 		read(temp); add(s2, temp);
+		print(temp);
 		read(temp); add(s2, temp);
 		read(temp); add(s2, temp);
+		print(temp);
 		s3 = s1 union s2;
 		print(s3); // 5 10 union {3 procitana broja}
 	

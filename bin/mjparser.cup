@@ -73,7 +73,7 @@ nonterminal DesignatorStatement;
 nonterminal ActPars;
 nonterminal Setop, Addop, Mulop;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodName, MethodDecl, Designator;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName, Program, MethodName, MethodDecl, Designator, DesignatorArrayName;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, ConstType, Factor, Expr, Term;
 
 Program ::= (Program) PROG ProgramName DeclList LBRACE MethodDeclList RBRACE;
@@ -185,8 +185,10 @@ DesignatorStatement ::=(DesignatorEqualExpr) Designator EQUAL Expr
 
 Designator ::= (DesignatorIdent) IDENT:designatorName
 			|
-			(DesignatorIdentExpr) IDENT:designatorName LBRACKET Expr RBRACKET
+			(DesignatorIdentExpr) DesignatorArrayName LBRACKET Expr RBRACKET
 			;
+
+DesignatorArrayName ::= (DesignatorArrayName) IDENT:designatorName;
 
 Expr ::=(ExprPositive) Term
 		|

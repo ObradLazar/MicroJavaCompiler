@@ -1,0 +1,563 @@
+INFO  20:39:12,393 - ==========================================================================================
+INFO  20:39:12,394 - Compiling source file C:\Users\LENOVO\Desktop\Njihov projekat\pp1lab.templateAST\pp1lab.templateAST\workspace\MJCompiler\.\test\set.mj
+INFO  20:39:12,394 - ==========================================================================================
+INFO  20:39:12,398 - Parsing source file
+INFO  20:39:12,398 - ==========================================================================================
+INFO  20:39:12,417 - #2 program
+INFO  20:39:12,417 - #29 test301
+INFO  20:39:12,417 - #7 const
+INFO  20:39:12,418 - #29 int
+INFO  20:39:12,419 - #29 nula
+INFO  20:39:12,419 - #12 =
+INFO  20:39:12,419 - #26 0
+INFO  20:39:12,421 - #9 ;
+INFO  20:39:12,421 - #7 const
+INFO  20:39:12,422 - #29 int
+INFO  20:39:12,422 - #29 jedan
+INFO  20:39:12,422 - #12 =
+INFO  20:39:12,422 - #26 1
+INFO  20:39:12,422 - #9 ;
+INFO  20:39:12,422 - #7 const
+INFO  20:39:12,422 - #29 int
+INFO  20:39:12,422 - #29 pet
+INFO  20:39:12,422 - #12 =
+INFO  20:39:12,423 - #26 5
+INFO  20:39:12,423 - #9 ;
+INFO  20:39:12,423 - #29 int
+INFO  20:39:12,423 - #29 niz
+INFO  20:39:12,423 - #22 [
+INFO  20:39:12,423 - #23 ]
+INFO  20:39:12,423 - #9 ;
+INFO  20:39:12,423 - #29 char
+INFO  20:39:12,424 - #29 nizch
+INFO  20:39:12,424 - #22 [
+INFO  20:39:12,424 - #23 ]
+INFO  20:39:12,424 - #9 ;
+INFO  20:39:12,424 - #29 int
+INFO  20:39:12,424 - #29 a
+INFO  20:39:12,424 - #9 ;
+INFO  20:39:12,424 - #29 set
+INFO  20:39:12,424 - #29 s1
+INFO  20:39:12,424 - #10 ,
+INFO  20:39:12,424 - #29 s2
+INFO  20:39:12,424 - #10 ,
+INFO  20:39:12,424 - #29 s3
+INFO  20:39:12,424 - #9 ;
+INFO  20:39:12,425 - #20 {
+INFO  20:39:12,425 - #3 void
+INFO  20:39:12,425 - #29 main
+INFO  20:39:12,426 - #24 (
+INFO  20:39:12,426 - #25 )
+INFO  20:39:12,427 - #29 int
+INFO  20:39:12,427 - #29 bodovi
+INFO  20:39:12,427 - #9 ;
+INFO  20:39:12,428 - #29 int
+INFO  20:39:12,428 - #29 temp
+INFO  20:39:12,428 - #9 ;
+INFO  20:39:12,428 - #20 {
+INFO  20:39:12,428 - #29 niz
+INFO  20:39:12,428 - #12 =
+INFO  20:39:12,428 - #6 new
+INFO  20:39:12,429 - #29 int
+INFO  20:39:12,429 - #22 [
+INFO  20:39:12,429 - #26 3
+INFO  20:39:12,429 - #23 ]
+INFO  20:39:12,429 - #9 ;
+INFO  20:39:12,429 - #29 niz
+INFO  20:39:12,429 - #22 [
+INFO  20:39:12,430 - #26 0
+INFO  20:39:12,430 - #23 ]
+INFO  20:39:12,430 - #12 =
+INFO  20:39:12,430 - #26 1
+INFO  20:39:12,430 - #9 ;
+INFO  20:39:12,430 - #29 niz
+INFO  20:39:12,430 - #22 [
+INFO  20:39:12,430 - #26 1
+INFO  20:39:12,430 - #23 ]
+INFO  20:39:12,430 - #12 =
+INFO  20:39:12,430 - #26 2
+INFO  20:39:12,430 - #9 ;
+INFO  20:39:12,430 - #29 niz
+INFO  20:39:12,431 - #22 [
+INFO  20:39:12,431 - #26 2
+INFO  20:39:12,431 - #23 ]
+INFO  20:39:12,431 - #12 =
+INFO  20:39:12,431 - #26 3
+INFO  20:39:12,431 - #9 ;
+INFO  20:39:12,431 - #29 s1
+INFO  20:39:12,431 - #12 =
+INFO  20:39:12,431 - #6 new
+INFO  20:39:12,431 - #29 set
+INFO  20:39:12,431 - #22 [
+INFO  20:39:12,431 - #26 5
+INFO  20:39:12,431 - #23 ]
+INFO  20:39:12,431 - #9 ;
+INFO  20:39:12,431 - #29 add
+INFO  20:39:12,431 - #24 (
+INFO  20:39:12,431 - #29 s1
+INFO  20:39:12,431 - #10 ,
+INFO  20:39:12,431 - #26 1
+INFO  20:39:12,432 - #25 )
+INFO  20:39:12,432 - #9 ;
+INFO  20:39:12,432 - #29 add
+INFO  20:39:12,432 - #24 (
+INFO  20:39:12,432 - #29 s1
+INFO  20:39:12,432 - #10 ,
+INFO  20:39:12,432 - #26 1
+INFO  20:39:12,432 - #25 )
+INFO  20:39:12,432 - #9 ;
+INFO  20:39:12,432 - #29 add
+INFO  20:39:12,432 - #24 (
+INFO  20:39:12,432 - #29 s1
+INFO  20:39:12,432 - #10 ,
+INFO  20:39:12,432 - #26 2
+INFO  20:39:12,432 - #25 )
+INFO  20:39:12,432 - #9 ;
+INFO  20:39:12,432 - #4 print
+INFO  20:39:12,432 - #24 (
+INFO  20:39:12,433 - #29 s1
+INFO  20:39:12,433 - #25 )
+INFO  20:39:12,433 - #9 ;
+INFO  20:39:12,433 - #4 print
+INFO  20:39:12,433 - #24 (
+INFO  20:39:12,433 - #29 eol
+INFO  20:39:12,433 - #25 )
+INFO  20:39:12,433 - #9 ;
+INFO  20:39:12,433 - #21 }
+INFO  20:39:12,433 - #21 }
+INFO  20:39:12,434 - ==========================================================================================
+INFO  20:39:12,434 - Parsing successful
+INFO  20:39:12,434 - ==========================================================================================
+INFO  20:39:12,435 - Abstract syntax tree
+ Program(
+   ProgramName(
+    test301
+   ) [ProgramName]
+   DeclarationList(
+     DeclarationList(
+       DeclarationList(
+         DeclarationList(
+           DeclarationList(
+             DeclarationList(
+               DeclarationList(
+                 NoDeclarationList(
+                 ) [NoDeclarationList]
+                 DeclarationConstant(
+                   ConstDecl(
+                     Type(
+                      int
+                     ) [Type]
+                     ConstDeclListSignle(
+                       ConstDeclaration(
+                        nula
+                         ConstTypeNumber(
+                          0
+                         ) [ConstTypeNumber]
+                       ) [ConstDeclaration]
+                     ) [ConstDeclListSignle]
+                   ) [ConstDecl]
+                 ) [DeclarationConstant]
+               ) [DeclarationList]
+               DeclarationConstant(
+                 ConstDecl(
+                   Type(
+                    int
+                   ) [Type]
+                   ConstDeclListSignle(
+                     ConstDeclaration(
+                      jedan
+                       ConstTypeNumber(
+                        1
+                       ) [ConstTypeNumber]
+                     ) [ConstDeclaration]
+                   ) [ConstDeclListSignle]
+                 ) [ConstDecl]
+               ) [DeclarationConstant]
+             ) [DeclarationList]
+             DeclarationConstant(
+               ConstDecl(
+                 Type(
+                  int
+                 ) [Type]
+                 ConstDeclListSignle(
+                   ConstDeclaration(
+                    pet
+                     ConstTypeNumber(
+                      5
+                     ) [ConstTypeNumber]
+                   ) [ConstDeclaration]
+                 ) [ConstDeclListSignle]
+               ) [ConstDecl]
+             ) [DeclarationConstant]
+           ) [DeclarationList]
+           DeclarationVariable(
+             VarDecl(
+               Type(
+                int
+               ) [Type]
+               VarDeclListSingle(
+                 VariableArray(
+                  niz
+                 ) [VariableArray]
+               ) [VarDeclListSingle]
+             ) [VarDecl]
+           ) [DeclarationVariable]
+         ) [DeclarationList]
+         DeclarationVariable(
+           VarDecl(
+             Type(
+              char
+             ) [Type]
+             VarDeclListSingle(
+               VariableArray(
+                nizch
+               ) [VariableArray]
+             ) [VarDeclListSingle]
+           ) [VarDecl]
+         ) [DeclarationVariable]
+       ) [DeclarationList]
+       DeclarationVariable(
+         VarDecl(
+           Type(
+            int
+           ) [Type]
+           VarDeclListSingle(
+             VariableIdent(
+              a
+             ) [VariableIdent]
+           ) [VarDeclListSingle]
+         ) [VarDecl]
+       ) [DeclarationVariable]
+     ) [DeclarationList]
+     DeclarationVariable(
+       VarDecl(
+         Type(
+          set
+         ) [Type]
+         VarDeclListMultiple(
+           VarDeclListMultiple(
+             VarDeclListSingle(
+               VariableIdent(
+                s1
+               ) [VariableIdent]
+             ) [VarDeclListSingle]
+             VariableIdent(
+              s2
+             ) [VariableIdent]
+           ) [VarDeclListMultiple]
+           VariableIdent(
+            s3
+           ) [VariableIdent]
+         ) [VarDeclListMultiple]
+       ) [VarDecl]
+     ) [DeclarationVariable]
+   ) [DeclarationList]
+   MethodDeclarationListMultiple(
+     NoMethodDeclList(
+     ) [NoMethodDeclList]
+     MethodDeclaration(
+       MethVoid(
+       ) [MethVoid]
+       MethodName(
+        main
+       ) [MethodName]
+       NoFormPars(
+       ) [NoFormPars]
+       VarDeclarationArray(
+         VarDeclarationArray(
+           NoVarDeclarationArray(
+           ) [NoVarDeclarationArray]
+           VarDecl(
+             Type(
+              int
+             ) [Type]
+             VarDeclListSingle(
+               VariableIdent(
+                bodovi
+               ) [VariableIdent]
+             ) [VarDeclListSingle]
+           ) [VarDecl]
+         ) [VarDeclarationArray]
+         VarDecl(
+           Type(
+            int
+           ) [Type]
+           VarDeclListSingle(
+             VariableIdent(
+              temp
+             ) [VariableIdent]
+           ) [VarDeclListSingle]
+         ) [VarDecl]
+       ) [VarDeclarationArray]
+       StatementListMultiple(
+         StatementListMultiple(
+           StatementListMultiple(
+             StatementListMultiple(
+               StatementListMultiple(
+                 StatementListMultiple(
+                   StatementListMultiple(
+                     StatementListMultiple(
+                       StatementListMultiple(
+                         StatementListMultiple(
+                           NoStatementList(
+                           ) [NoStatementList]
+                           StatementDesignator(
+                             DesignatorEqualExpr(
+                               DesignatorIdent(
+                                niz
+                               ) [DesignatorIdent]
+                               ExprPositive(
+                                 SignleTerm(
+                                   FactorNewExprArray(
+                                     Type(
+                                      int
+                                     ) [Type]
+                                     ExprPositive(
+                                       SignleTerm(
+                                         FactorConst(
+                                           ConstTypeNumber(
+                                            3
+                                           ) [ConstTypeNumber]
+                                         ) [FactorConst]
+                                       ) [SignleTerm]
+                                     ) [ExprPositive]
+                                   ) [FactorNewExprArray]
+                                 ) [SignleTerm]
+                               ) [ExprPositive]
+                             ) [DesignatorEqualExpr]
+                           ) [StatementDesignator]
+                         ) [StatementListMultiple]
+                         StatementDesignator(
+                           DesignatorEqualExpr(
+                             DesignatorIdentExpr(
+                               DesignatorArrayName(
+                                niz
+                               ) [DesignatorArrayName]
+                               ExprPositive(
+                                 SignleTerm(
+                                   FactorConst(
+                                     ConstTypeNumber(
+                                      0
+                                     ) [ConstTypeNumber]
+                                   ) [FactorConst]
+                                 ) [SignleTerm]
+                               ) [ExprPositive]
+                             ) [DesignatorIdentExpr]
+                             ExprPositive(
+                               SignleTerm(
+                                 FactorConst(
+                                   ConstTypeNumber(
+                                    1
+                                   ) [ConstTypeNumber]
+                                 ) [FactorConst]
+                               ) [SignleTerm]
+                             ) [ExprPositive]
+                           ) [DesignatorEqualExpr]
+                         ) [StatementDesignator]
+                       ) [StatementListMultiple]
+                       StatementDesignator(
+                         DesignatorEqualExpr(
+                           DesignatorIdentExpr(
+                             DesignatorArrayName(
+                              niz
+                             ) [DesignatorArrayName]
+                             ExprPositive(
+                               SignleTerm(
+                                 FactorConst(
+                                   ConstTypeNumber(
+                                    1
+                                   ) [ConstTypeNumber]
+                                 ) [FactorConst]
+                               ) [SignleTerm]
+                             ) [ExprPositive]
+                           ) [DesignatorIdentExpr]
+                           ExprPositive(
+                             SignleTerm(
+                               FactorConst(
+                                 ConstTypeNumber(
+                                  2
+                                 ) [ConstTypeNumber]
+                               ) [FactorConst]
+                             ) [SignleTerm]
+                           ) [ExprPositive]
+                         ) [DesignatorEqualExpr]
+                       ) [StatementDesignator]
+                     ) [StatementListMultiple]
+                     StatementDesignator(
+                       DesignatorEqualExpr(
+                         DesignatorIdentExpr(
+                           DesignatorArrayName(
+                            niz
+                           ) [DesignatorArrayName]
+                           ExprPositive(
+                             SignleTerm(
+                               FactorConst(
+                                 ConstTypeNumber(
+                                  2
+                                 ) [ConstTypeNumber]
+                               ) [FactorConst]
+                             ) [SignleTerm]
+                           ) [ExprPositive]
+                         ) [DesignatorIdentExpr]
+                         ExprPositive(
+                           SignleTerm(
+                             FactorConst(
+                               ConstTypeNumber(
+                                3
+                               ) [ConstTypeNumber]
+                             ) [FactorConst]
+                           ) [SignleTerm]
+                         ) [ExprPositive]
+                       ) [DesignatorEqualExpr]
+                     ) [StatementDesignator]
+                   ) [StatementListMultiple]
+                   StatementDesignator(
+                     DesignatorEqualExpr(
+                       DesignatorIdent(
+                        s1
+                       ) [DesignatorIdent]
+                       ExprPositive(
+                         SignleTerm(
+                           FactorNewExprArray(
+                             Type(
+                              set
+                             ) [Type]
+                             ExprPositive(
+                               SignleTerm(
+                                 FactorConst(
+                                   ConstTypeNumber(
+                                    5
+                                   ) [ConstTypeNumber]
+                                 ) [FactorConst]
+                               ) [SignleTerm]
+                             ) [ExprPositive]
+                           ) [FactorNewExprArray]
+                         ) [SignleTerm]
+                       ) [ExprPositive]
+                     ) [DesignatorEqualExpr]
+                   ) [StatementDesignator]
+                 ) [StatementListMultiple]
+                 StatementDesignator(
+                   DesignatorActPars(
+                     DesignatorIdent(
+                      add
+                     ) [DesignatorIdent]
+                     MultipleActPars(
+                       SingleActPar(
+                         ExprPositive(
+                           SignleTerm(
+                             FactorDesignator(
+                               DesignatorIdent(
+                                s1
+                               ) [DesignatorIdent]
+                             ) [FactorDesignator]
+                           ) [SignleTerm]
+                         ) [ExprPositive]
+                       ) [SingleActPar]
+                       ExprPositive(
+                         SignleTerm(
+                           FactorConst(
+                             ConstTypeNumber(
+                              1
+                             ) [ConstTypeNumber]
+                           ) [FactorConst]
+                         ) [SignleTerm]
+                       ) [ExprPositive]
+                     ) [MultipleActPars]
+                   ) [DesignatorActPars]
+                 ) [StatementDesignator]
+               ) [StatementListMultiple]
+               StatementDesignator(
+                 DesignatorActPars(
+                   DesignatorIdent(
+                    add
+                   ) [DesignatorIdent]
+                   MultipleActPars(
+                     SingleActPar(
+                       ExprPositive(
+                         SignleTerm(
+                           FactorDesignator(
+                             DesignatorIdent(
+                              s1
+                             ) [DesignatorIdent]
+                           ) [FactorDesignator]
+                         ) [SignleTerm]
+                       ) [ExprPositive]
+                     ) [SingleActPar]
+                     ExprPositive(
+                       SignleTerm(
+                         FactorConst(
+                           ConstTypeNumber(
+                            1
+                           ) [ConstTypeNumber]
+                         ) [FactorConst]
+                       ) [SignleTerm]
+                     ) [ExprPositive]
+                   ) [MultipleActPars]
+                 ) [DesignatorActPars]
+               ) [StatementDesignator]
+             ) [StatementListMultiple]
+             StatementDesignator(
+               DesignatorActPars(
+                 DesignatorIdent(
+                  add
+                 ) [DesignatorIdent]
+                 MultipleActPars(
+                   SingleActPar(
+                     ExprPositive(
+                       SignleTerm(
+                         FactorDesignator(
+                           DesignatorIdent(
+                            s1
+                           ) [DesignatorIdent]
+                         ) [FactorDesignator]
+                       ) [SignleTerm]
+                     ) [ExprPositive]
+                   ) [SingleActPar]
+                   ExprPositive(
+                     SignleTerm(
+                       FactorConst(
+                         ConstTypeNumber(
+                          2
+                         ) [ConstTypeNumber]
+                       ) [FactorConst]
+                     ) [SignleTerm]
+                   ) [ExprPositive]
+                 ) [MultipleActPars]
+               ) [DesignatorActPars]
+             ) [StatementDesignator]
+           ) [StatementListMultiple]
+           StatementPrint(
+             ExprPositive(
+               SignleTerm(
+                 FactorDesignator(
+                   DesignatorIdent(
+                    s1
+                   ) [DesignatorIdent]
+                 ) [FactorDesignator]
+               ) [SignleTerm]
+             ) [ExprPositive]
+           ) [StatementPrint]
+         ) [StatementListMultiple]
+         StatementPrint(
+           ExprPositive(
+             SignleTerm(
+               FactorDesignator(
+                 DesignatorIdent(
+                  eol
+                 ) [DesignatorIdent]
+               ) [FactorDesignator]
+             ) [SignleTerm]
+           ) [ExprPositive]
+         ) [StatementPrint]
+       ) [StatementListMultiple]
+     ) [MethodDeclaration]
+   ) [MethodDeclarationListMultiple]
+ ) [Program]
+INFO  20:39:12,436 - ==========================================================================================
+INFO  20:39:12,436 - Checking program semantics
+INFO  20:39:12,436 - ==========================================================================================
+INFO  20:39:12,441 - ==========================================================================================
+INFO  20:39:12,442 - Semantic check passed
+INFO  20:39:12,442 - ==========================================================================================
+INFO  20:39:12,444 - Parsiranje uspesno zavrseno!
